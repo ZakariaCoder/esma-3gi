@@ -176,36 +176,42 @@
             Choisissez la formule qui correspond le mieux à votre activité et à votre budget.
         </p>
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            <div class="pricing-card p-6 bg-white rounded-md shadow-md">
-                <h3 class="text-xl font-semibold mb-2">Forfait Découverte</h3>
-                <div class="text-2xl font-bold text-brand-orange mb-4">15€ / jour</div>
-                <ul class="text-gray-600 list-disc list-inside mb-4">
+            <div class="pricing-card p-6 bg-white rounded-md shadow-md d-flex flex-column">
+                <h3 class="text-xl font-semibold mb-2" style="font-size: 25px !important;">Forfait Découverte</h3>
+                <div class="text-2xl font-bold text-brand-orange mb-4">75DH / jour</div>
+                <ul class="text-gray-600 list-disc mb-4 text-left" style="padding-left: 20px;">
                     <li>Accès à l'espace de coworking</li>
                     <li>Internet haut débit</li>
                     <li>Café et thé à volonté</li>
                 </ul>
-                <a href="./?p=facility_available" class="btn-primary">Réserver</a>
+                <div class="mt-auto">
+                    <a href="./?p=register" class="btn-primary">S'abonner</a>
+                </div>
             </div>
-            <div class="pricing-card p-6 bg-white rounded-md shadow-md">
-                <h3 class="text-xl font-semibold mb-2">Abonnement Mensuel</h3>
-                <div class="text-2xl font-bold text-brand-orange mb-4">250€ / mois</div>
-                <ul class="text-gray-600 list-disc list-inside mb-4">
+            <div class="pricing-card p-6 bg-white rounded-md shadow-md d-flex flex-column">
+                <h3 class="text-xl font-semibold mb-2" style="font-size: 25px !important;">Abonnement Mensuel</h3>
+                <div class="text-2xl font-bold text-brand-orange mb-4">375DH / mois</div>
+                <ul class="text-gray-600 list-disc mb-4 text-left" style="padding-left: 20px;">
                     <li>Accès illimité à l'espace de coworking</li>
                     <li>Internet haut débit</li>
                     <li>Accès aux salles de réunion (2h/mois)</li>
                 </ul>
-                <a href="./?p=register" class="btn-primary">S'abonner</a>
+                <div class="mt-auto">
+                    <a href="./?p=register" class="btn-primary">S'abonner</a>
+                </div>
             </div>
-            <div class="pricing-card p-6 bg-white rounded-md shadow-md">
-                <h3 class="text-xl font-semibold mb-2">Forfait Premium</h3>
-                <div class="text-2xl font-bold text-brand-orange mb-4">400€ / mois</div>
-                <ul class="text-gray-600 list-disc list-inside mb-4">
+            <div class="pricing-card p-6 bg-white rounded-md shadow-md d-flex flex-column">
+                <h3 class="text-xl font-semibold mb-2" style="font-size: 25px !important;">Forfait Premium</h3>
+                <div class="text-2xl font-bold text-brand-orange mb-4">550DH / mois</div>
+                <ul class="text-gray-600 list-disc mb-4 text-left" style="padding-left: 20px;">
                     <li>Accès illimité 24/7</li>
                     <li>Internet haut débit</li>
                     <li>Accès illimité aux salles de réunion</li>
                     <li>Domiciliation d'entreprise</li>
                 </ul>
-                <a href="./?p=register" class="btn-primary">Choisir</a>
+                <div class="mt-auto">
+                    <a href="./?p=register" class="btn-primary">S'abonner</a>
+                </div>
             </div>
         </div>
     </div>
@@ -247,14 +253,14 @@
             <div>
                 <div class="bg-white rounded-xl p-6 shadow-md border border-gray-100 mb-8">
                     <h3 class="text-xl font-semibold mb-6">Informations de contact</h3>
-                    <div class="space-y-4">
+                    <div class="space-y-4 information-contact">
                         <div class="flex items-start">
                             <div class="w-10 h-10 bg-brand-orange/10 rounded-lg flex items-center justify-center mr-4 flex-shrink-0">
                                 <i data-lucide="map-pin" class="text-brand-orange" width="20" height="20"></i>
                             </div>
                             <div>
                                 <p class="font-medium">Adresse</p>
-                                <p class="text-gray-600">123 Avenue des Entrepreneurs, 75001 Paris, France</p>
+                                <p class="text-gray-600">123 Avenue Mohammed V, Marrakech, Maroc</p>
                             </div>
                         </div>
                         
@@ -264,7 +270,7 @@
                             </div>
                             <div>
                                 <p class="font-medium">Email</p>
-                                <p class="text-gray-600">contact@orangecoworking.fr</p>
+                                <p class="text-gray-600">coworkingmanager@gmail.com</p>
                             </div>
                         </div>
 
@@ -274,7 +280,7 @@
                             </div>
                             <div>
                                 <p class="font-medium">Téléphone</p>
-                                <p class="text-gray-600">+33 1 23 45 67 89</p>
+                                <p class="text-gray-600">+212 522 123 456</p>
                             </div>
                         </div>
                     </div>

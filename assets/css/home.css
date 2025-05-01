@@ -217,8 +217,15 @@
     background-clip: text;
     color: transparent;
     display: inline-block;
+    font-weight: 700;
 }
-
+section.section-padding#contact>div>div>h2 {
+    background: linear-gradient(90deg, #1f2937, #ffffff);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    color: transparent;
+}
 /* COMPONENTS */
 .btn-primary {
     display: inline-block;
@@ -430,7 +437,10 @@
 .hidden {
     display: none;
 }
-
+/* == Information de contact == */
+div.information-contact p {
+    margin-bottom: 0;
+}
 /* RESPONSIVE */
 @media (min-width: 768px) {
     .md\:grid-cols-2 {

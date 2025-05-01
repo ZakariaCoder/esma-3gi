@@ -118,7 +118,7 @@
     </div>
     
     <div class="border-t border-gray-800 pt-6 mt-8">
-      <p class="text-gray-400 text-center">&copy; <span id="current-year"><?php echo date('Y'); ?></span> Coworking Manager; Tous droits réservés. Développée par <a href="https://github.com/ZakariaCoder/esma-3gi" target="_blank" class="text-brand-orange">Zakaria & Houssam</a></p>
+      <p class="text-gray-400 text-center" style="border-top: 1px solid #fd5a31; padding-top: 15px;">&copy; <span id="current-year"><?php echo date('Y'); ?></span> Coworking Manager; Tous droits réservés. Développée par <a href="https://github.com/ZakariaCoder/esma-3gi" target="_blank" class="text-brand-orange">Zakaria & Houssam</a></p>
     </div>
   </div>
 </footer>
