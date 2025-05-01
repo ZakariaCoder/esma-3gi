@@ -211,7 +211,7 @@ label.star:before {
 }
 /* === Nav Bar Header === */
 nav.navbar {
-    max-height: 85px;
+    max-height: 90px;
     overflow: hidden;
 }
 header nav.navbar.bg-gradient-light, nav.navbar.bg-gradient-light {
