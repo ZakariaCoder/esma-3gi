@@ -10,8 +10,7 @@
             <div class="container px-4 px-lg-5 ">
                 <button class="navbar-toggler btn btn-sm" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
                 <a class="navbar-brand" href="./">
-                <img src="<?php echo validate_image($_settings->info('logo')) ?>" width="30" height="30" class="d-inline-block align-top" alt="" loading="lazy">
-                <?php echo $_settings->info('short_name') ?>
+                <img src="uploads/system-logo.png" width="220px" padding-right="15px" class="d-inline-block align-top" alt="ESMA" loading="lazy">
                 </a>
 
                 <!-- <form class="form-inline" id="search-form">
@@ -24,9 +23,9 @@
                 </form> -->
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav me-auto mb-2 mb-lg-0 ms-lg-4">
-                        <li class="nav-item"><a class="nav-link <?= isset($page) && $page == 'home'? "active" : '' ?>" aria-current="page" href="./">Home</a></li>
-                        <li class="nav-item"><a class="nav-link <?= isset($page) && $page == 'facility_available'? "active" : '' ?>" href="./?p=facility_available">Facilities</a></li>
-                        <li class="nav-item"><a class="nav-link <?= isset($page) && $page == 'about'? "active" : '' ?>" href="./?p=about">About Us</a></li>
+                        <li class="nav-item"><a class="nav-link <?= isset($page) && $page == 'home'? "active" : '' ?>" aria-current="page" href="./">Accueil</a></li>
+                        <li class="nav-item"><a class="nav-link <?= isset($page) && $page == 'facility_available'? "active" : '' ?>" href="./?p=facility_available">Espaces</a></li>
+                        <li class="nav-item"><a class="nav-link <?= isset($page) && $page == 'about'? "active" : '' ?>" href="./?p=about">À Propos</a></li>
                     </ul>
                     <div class="d-flex align-items-center">
                     </div>
@@ -36,18 +35,18 @@
                     <div class="d-flex align-items-end">
                       <div class="navbar-nav nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                          <span><img src="<?= validate_image($_settings->userdata('image_path')) ?>" alt="user_avatar" id="user_avatar" class="img-fluid img-thumbnail rounded-circle border-dark"></span> Howdy, <?= $_settings->userdata('email') ?>
+                          <span><img src="<?= validate_image($_settings->userdata('image_path')) ?>" alt="user_avatar" id="user_avatar" class="img-fluid img-thumbnail rounded-circle border-dark"></span> Bonjour, <?= $_settings->userdata('email') ?>
                         </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                          <a class="dropdown-item" href="./?p=booking_list">My Bookings</a>
-                          <a class="dropdown-item" href="./?p=manage_account">Manage Account</a>
-                          <a class="dropdown-item" href="./classes/Login.php?f=logout_client">Logout</a>
+                          <a class="dropdown-item" href="./?p=booking_list">Mes Réservations</a>
+                          <a class="dropdown-item" href="./?p=manage_account">Gérer le Compte</a>
+                          <a class="dropdown-item" href="./classes/Login.php?f=logout_client">Déconnexion</a>
                         </div>
                       </div>
                     </div>
                   <?php else: ?>
-                    <a href="./login.php" class="text-reset text-decoration-none mx-2"><b>Login</b></a> | 
-                    <a href="./register.php" class="text-reset text-decoration-none mx-2"><b>Register</b></a> | 
+                    <a href="./login.php" class="text-reset text-decoration-none mx-2"><b>Connexion</b></a> | 
+                    <a href="./register.php" class="text-reset text-decoration-none mx-2"><b>S'inscrire</b></a> | 
                     <a href="./admin/login.php" class="text-reset text-decoration-none mx-2"><b>Admin</b></a>
                   <?php endif; ?>
                 </div>

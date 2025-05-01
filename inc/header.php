@@ -23,7 +23,7 @@
   <link rel="stylesheet" href="<?php echo base_url ?>plugins/select2-bootstrap4-theme/select2-bootstrap4.min.css">
     <!-- Theme style -->
     <link rel="stylesheet" href="<?php echo base_url ?>dist/css/adminlte.css">
-    <link rel="stylesheet" href="<?php echo base_url ?>dist/css/custom.css">
+    <link rel="stylesheet" href="<?php echo base_url ?>dist/css/custom.css?v=<?php echo time(); ?>">
     <!-- overlayScrollbars -->
     <link rel="stylesheet" href="<?php echo base_url ?>plugins/overlayScrollbars/css/OverlayScrollbars.min.css">
     <!-- summernote -->

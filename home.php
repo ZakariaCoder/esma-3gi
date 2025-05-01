@@ -1,14 +1,120 @@
- <!-- Header-->
- <header class="bg-dark py-5" id="main-header">
-    <div class="container h-100 d-flex align-items-center justify-content-center w-100">
-        <div class="text-center text-white w-100">
-            <h1 class="display-4 fw-bolder mx-5"><?php echo $_settings->info('name') ?></h1>
-            <div class="col-auto mt-4">
-                <!-- <a class="btn btn-warning btn-lg rounded-0" href="./?p=booking">Book Now</a> -->
+<!-- Carousel Slider -->
+<link rel="stylesheet" href="<?php echo base_url ?>assets/css/slider.css?v=<?php echo time(); ?>">
+<div class="carousel">
+    <div class="time"></div>
+    <!-- list item -->
+    <div class="list">
+        <div class="item">
+            <img src="<?php echo base_url ?>assets/image/coworking space img1.png">
+            <div class="content">
+                <div class="title">ESPACE DE COWORKING</div>
+                <div class="topic">SYSTÈME DE RÉSERVATION</div>
+                <div class="des">
+                    Trouvez et réservez votre espace de travail idéal pour des réunions, des événements ou le travail quotidien. Nos espaces de coworking offrent l'environnement parfait pour la productivité et la collaboration.
+                </div>
+                <div class="buttons">
+                    <a href="./?p=facility_available"><button>EXPLORER LES ESPACES</button></a>
+                    <a href="./?p=register"><button>S'INSCRIRE</button></a>
+                </div>
+            </div>
+        </div>
+        <div class="item">
+            <img src="<?php echo base_url ?>assets/image/Untitled design (2)img2.png">
+            <div class="content">
+                <div class="title">ESPACES DE TRAVAIL FLEXIBLES</div>
+                <div class="topic">POUR LES PROFESSIONNELS</div>
+                <div class="des">
+                    Nos espaces sont conçus pour les professionnels qui ont besoin d'un environnement productif. Avec internet haut débit, salles de réunion et toutes les commodités nécessaires pour réussir.
+                </div>
+                <div class="buttons">
+                    <a href="./?p=facility_available"><button>EXPLORER LES ESPACES</button></a>
+                    <a href="./?p=about"><button>EN SAVOIR PLUS</button></a>
+                </div>
+            </div>
+        </div>
+        <div class="item">
+            <img src="<?php echo base_url ?>assets/image/Untitled design (2)Img3.png">
+            <div class="content">
+                <div class="title">ORIENTÉ COMMUNAUTÉ</div>
+                <div class="topic">ENVIRONNEMENT COLLABORATIF</div>
+                <div class="des">
+                    Rejoignez une communauté de professionnels partageant les mêmes idées. Nos espaces de coworking favorisent la collaboration, le réseautage et les opportunités de croissance pour les freelances et les entreprises.
+                </div>
+                <div class="buttons">
+                    <a href="./?p=facility_available"><button>EXPLORER LES ESPACES</button></a>
+                    <a href="./?p=login"><button>CONNEXION</button></a>
+                </div>
+            </div>
+        </div>
+        <div class="item">
+            <img src="<?php echo base_url ?>assets/image/Untitled design (2)img4.png">
+            <div class="content">
+                <div class="title">SERVICES PREMIUM</div>
+                <div class="topic">CONFORT & COMMODITÉ</div>
+                <div class="des">
+                    Profitez de services premium comprenant internet haut débit, mobilier confortable, salles de réunion, cafétéria et accès 24h/24 et 7j/7. Tout ce dont vous avez besoin pour une journée de travail productive.
+                </div>
+                <div class="buttons">
+                    <a href="./?p=facility_available"><button>EXPLORER LES ESPACES</button></a>
+                    <a href="./?p=about"><button>À PROPOS DE NOUS</button></a>
+                </div>
             </div>
         </div>
     </div>
-</header>
+    <!-- Next and Prev buttons -->
+    <div class="arrows">
+        <button id="prev"><</button>
+        <button id="next">></button>
+    </div>
+    <!-- Thumbnail -->
+    <div class="thumbnail">
+        <div class="item">
+            <img src="<?php echo base_url ?>assets/image/coworking space img1.png">
+            <div class="content">
+                <div class="title">
+                    ESPACE DE COWORKING
+                </div>
+                <div class="description">
+                    Réservez votre espace idéal
+                </div>
+            </div>
+        </div>
+        <div class="item">
+            <img src="<?php echo base_url ?>assets/image/Untitled design (2)img2.png">
+            <div class="content">
+                <div class="title">
+                    ESPACES DE TRAVAIL FLEXIBLES
+                </div>
+                <div class="description">
+                    Pour les professionnels
+                </div>
+            </div>
+        </div>
+        <div class="item">
+            <img src="<?php echo base_url ?>assets/image/Untitled design (2)Img3.png">
+            <div class="content">
+                <div class="title">
+                    ORIENTÉ COMMUNAUTÉ
+                </div>
+                <div class="description">
+                    Environnement collaboratif
+                </div>
+            </div>
+        </div>
+        <div class="item">
+            <img src="<?php echo base_url ?>assets/image/Untitled design (2)img4.png">
+            <div class="content">
+                <div class="title">
+                    SERVICES PREMIUM
+                </div>
+                <div class="description">
+                    Confort & commodité
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="<?php echo base_url ?>assets/js/slider.js?v=<?php echo time(); ?>"></script>
 <!-- Section-->
 <section class="py-5">
     <div class="container">

@@ -158,7 +158,7 @@ CREATE TABLE `system_info` (
 --
 
 INSERT INTO `system_info` (`id`, `meta_field`, `meta_value`) VALUES
-(1, 'name', 'Sports Complex Booking System'),
+(1, 'name', 'not Complex Booking System'),
 (6, 'short_name', 'SCBS - PHP'),
 (11, 'logo', 'uploads/system-logo.png?v=1648002319'),
 (13, 'user_avatar', 'uploads/user_avatar.jpg'),

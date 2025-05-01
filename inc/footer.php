@@ -1,7 +1,7 @@
 <script>
   $(document).ready(function(){
     $('#p_use').click(function(){
-      uni_modal("Privacy Policy","policy.php","mid-large")
+      uni_modal("Politique de Confidentialité","policy.php","mid-large")
     })
      window.viewer_modal = function($src = ''){
       start_loader()
@@ -29,7 +29,7 @@
             url:$url,
             error:err=>{
                 console.log()
-                alert("An error occured")
+                alert("Une erreur s'est produite")
             },
             success:function(resp){
                 if(resp){
@@ -61,8 +61,8 @@
 <!-- Footer-->
 <footer class="py-5 bg-dark">
             <div class="container">
-              <p class="m-0 text-center text-white">Copyright &copy; <?php echo $_settings->info('short_name') ?> 2021</p>
-              <p class="m-0 text-center text-white">Developed By: <a href="mailto:oretnom23@gmail.com">oretnom23</a></p>
+              <p class="m-0 text-center text-white">Droits d'auteur &copy; <?php echo $_settings->info('short_name') ?> 2021</p>
+              <p class="m-0 text-center text-white">Développé par: <a href="mailto:oretnom23@gmail.com">oretnom23</a></p>
           </div>
         </footer>
 

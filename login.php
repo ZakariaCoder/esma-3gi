@@ -33,7 +33,7 @@
   <div class="clear-fix my-2"></div>
   <div class="card card-outline card-primary">
     <div class="card-header text-center">
-      <a href="./" class="h1 text-decoration-none"><b>Login</b></a>
+      <a href="./" class="h1 text-decoration-none"><b>Connexion</b></a>
     </div>
     <div class="card-body">
       <p class="login-box-msg">Sign in to start your session</p>
