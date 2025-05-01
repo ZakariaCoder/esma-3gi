@@ -11,10 +11,12 @@
       </script>
 <?php endif;?>
 <?php 
-    if(!file_exists($page.".php") && !is_dir($page)){
+    if($page == 'home') {
+        include 'home.php';
+    } else if(!file_exists($page.".php") && !is_dir($page)){
         include '404.html';
-    }else{
-      if(is_dir($page))
+    } else {
+      if(is_dir($page) && file_exists($page.'/index.php'))
         include $page.'/index.php';
       else
         include $page.'.php';
