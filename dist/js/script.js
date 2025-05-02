@@ -68,26 +68,38 @@ $(document).ready(function() {
             var el = $('<div class="alert err_msg">')
             el.hide()
             start_loader()
+            
+            // Clear any previous login messages
+            $('#login-message').empty();
+            
             $.ajax({
                 url: _base_url_ + 'classes/Login.php?f=login_client',
                 method: 'POST',
                 data: $(this).serialize(),
                 dataType: 'json',
                 error: err => {
-                    console.log(err)
-                    el.text('An error occured')
+                    console.log('Login error:', err)
+                    el.text('Une erreur est survenue lors de la connexion')
                     el.addClass('alert-danger')
-                    _this.append(el)
+                    _this.prepend(el)
                     el.show('slow')
                     end_loader()
                 },
                 success: function(resp) {
+                    console.log('Login response:', resp);
                     if (resp.status == 'success') {
-                        location.replace(_base_url_);
+                        // Show success message
+                        $('#login-message').html('<div class="alert alert-success">Connexion réussie! Redirection...</div>');
+                        
+                        // Force a hard reload to ensure session is recognized
+                        setTimeout(function() {
+                            // Use document.location with reload(true) for a complete page refresh
+                            document.location.href = _base_url_;
+                        }, 1000);
                     } else if (!!resp.msg) {
                         el.text(resp.msg)
                         el.addClass('alert-danger')
-                        _this.append(el)
+                        _this.prepend(el)
                         el.show('slow')
                         _this.find('input').addClass('is-invalid')
                         $('[name="username"]').focus()

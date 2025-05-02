@@ -127,8 +127,11 @@ class SystemSettings extends DBConnection{
 		}
 	}
 	function set_userdata($field='',$value=''){
-		if(!empty($field) && !empty($value)){
-			$_SESSION['userdata'][$field]= $value;
+		if(!empty($field)){
+			if(!isset($_SESSION['userdata'])) {
+				$_SESSION['userdata'] = [];
+			}
+			$_SESSION['userdata'][$field] = $value;
 		}
 	}
 	function userdata($field = ''){
@@ -165,10 +168,10 @@ class SystemSettings extends DBConnection{
 	}
 	function sess_des(){
 		if(isset($_SESSION['userdata'])){
-				unset($_SESSION['userdata']);
+			unset($_SESSION['userdata']);
 			return true;
 		}
-			return true;
+		return false;
 	}
 	function info($field=''){
 		if(!empty($field)){

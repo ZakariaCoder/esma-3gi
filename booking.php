@@ -9,18 +9,52 @@ if(isset($_GET['id']) && $_GET['id'] > 0){
     }
 }
 ?>
-<div class="container-fluid">
+<style>
+    .booking-form-container {
+        padding: 20px;
+    }
+    .booking-form-container .form-group {
+        margin-bottom: 20px;
+    }
+    .booking-form-container label {
+        font-weight: 600;
+        color: #333;
+        margin-bottom: 8px;
+        display: block;
+    }
+    .booking-form-container input[type="date"] {
+        border: 1px solid #ddd;
+        border-radius: 5px;
+        padding: 10px;
+        width: 100%;
+        transition: border-color 0.3s;
+    }
+    .booking-form-container input[type="date"]:focus {
+        border-color: var(--primary);
+        box-shadow: 0 0 0 0.2rem rgba(241, 104, 58, 0.25);
+        outline: none;
+    }
+    .booking-note {
+        font-size: 0.85rem;
+        color: #666;
+        margin-top: 15px;
+        font-style: italic;
+    }
+</style>
+
+<div class="booking-form-container">
     <form action="" id="booking-form">
         <input type="hidden" name="id" value="<?= isset($id) ? $id : '' ?>">
         <input type="hidden" name="facility_id" value="<?= isset($_GET['fid']) ? $_GET['fid'] : (isset($facility_id) ? $facility_id : "") ?>">
         <div class="form-group">
-            <label for="date_from" class="control-label">From Date</label>
-            <input name="date_from" id="date_from" type="date" class="form-control form-control-sm rounded-0" required />
+            <label for="date_from" class="control-label">Date de début</label>
+            <input name="date_from" id="date_from" type="date" class="form-control" required />
         </div>
         <div class="form-group">
-            <label for="date_to" class="control-label">To Date</label>
-            <input name="date_to" id="date_to" type="date" class="form-control form-control-sm rounded-0" required />
+            <label for="date_to" class="control-label">Date de fin</label>
+            <input name="date_to" id="date_to" type="date" class="form-control" required />
         </div>
+        <p class="booking-note">Veuillez sélectionner les dates pour lesquelles vous souhaitez réserver cet espace.</p>
     </form>
 </div>
 

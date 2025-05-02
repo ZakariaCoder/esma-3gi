@@ -81,6 +81,7 @@
     <div class="card-body">
       <p class="login-box-msg">Connectez-vous pour commencer votre session</p>
 
+      <div id="login-message"></div>
       <form id="clogin-frm" action="" method="post">
         <div class="input-group mb-3">
           <input type="email" class="form-control" name="email" autofocus placeholder="Email">

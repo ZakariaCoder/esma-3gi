@@ -1,4 +1,27 @@
-<?php require_once('config.php'); ?>
+<?php 
+// Start with session handling
+require_once('config.php'); 
+
+// Debug session info (hidden in production)
+$debug_mode = false;
+if($debug_mode) {
+    echo "<div style='position: fixed; top: 0; left: 0; background: rgba(0,0,0,0.8); color: white; padding: 10px; z-index: 9999; font-size: 12px;'>"; 
+    echo "<h4>Session Debug</h4>";
+    echo "<pre style='color: #eee;'>";
+    echo "Session ID: " . session_id() . "\n";
+    echo "Session Status: " . session_status() . "\n";
+    
+    if(isset($_SESSION['userdata'])) {
+        echo "User Data:\n";
+        print_r($_SESSION['userdata']);
+    } else {
+        echo "No user data in session\n";
+    }
+    
+    echo "</pre>";
+    echo "</div>";
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 <?php require_once('inc/header.php') ?>

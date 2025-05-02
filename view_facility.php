@@ -81,10 +81,15 @@ if(isset($_GET['id']) && $_GET['id'] > 0){
 <script>
   $(function(){
     $('#book_now').click(function(){
-        if("<?= $_settings->userdata('id') && $_settings->userdata('login_type') == 2 ?>" == 1)
-            uni_modal("Book Facility","booking.php?fid=<?= $id ?>",'modal-sm');
-        else
-        location.href = './login.php';
+        // Check if user is logged in directly from session
+        var userId = <?= isset($_SESSION['userdata']['id']) ? $_SESSION['userdata']['id'] : 0 ?>;
+        var loginType = <?= isset($_SESSION['userdata']['login_type']) ? $_SESSION['userdata']['login_type'] : 0 ?>;
+        
+        if(userId > 0 && loginType == 2) {
+            uni_modal("Réserver cet espace", "booking.php?fid=<?= $id ?>", 'modal-sm');
+        } else {
+            location.href = './login.php';
+        }
     })
   })
 </script>
