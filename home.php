@@ -1,5 +1,7 @@
 <!-- Carousel Slider -->
 <link rel="stylesheet" href="<?php echo base_url ?>assets/css/slider.css?v=<?php echo time(); ?>">
+<!-- Footer Styles -->
+<link rel="stylesheet" href="<?php echo base_url ?>assets/css/footer.css?v=<?php echo time(); ?>">
 <div class="carousel">
     <div class="time"></div>
     <!-- list item -->
