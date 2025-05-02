@@ -35,7 +35,9 @@
 						$qry = $conn->query("SELECT *,concat(lastname, ', ', firstname,' ',middlename) as fullname from `client_list` where delete_flag= 0 order by concat(lastname, ', ', firstname,' ',middlename) asc ");
 						while($row = $qry->fetch_assoc()):
 							foreach($row as $k=> $v){
-								$row[$k] = trim(stripslashes($v));
+								if($v !== null) {
+									$row[$k] = trim(stripslashes($v));
+								}
 							}
 					?>
 						<tr>

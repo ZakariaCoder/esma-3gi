@@ -19,6 +19,49 @@
           height:15em;
           object-fit:scale-down;
           object-position:center center;
+          background-color: transparent;
+          backdrop-filter: brightness(0.5);
+      }
+      .login-box {
+          width: 400px;
+          margin: 0 auto;
+      }
+      .card-outline.card-primary {
+          border-top: 3px solid var(--brand-orange);
+          box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+          border-radius: 10px;
+      }
+      .btn-primary {
+          background: linear-gradient(135deg, #ff8800, #ff5500) !important;
+          border: none !important;
+          border-radius: 30px !important;
+          padding: 8px 15px !important;
+          font-weight: 600 !important;
+          text-transform: uppercase;
+          letter-spacing: 0.5px;
+          transition: all 0.3s ease;
+          box-shadow: 0 4px 10px rgba(255, 136, 0, 0.3);
+      }
+      .btn-primary:hover {
+          background: linear-gradient(135deg, #ff5500, #ff8800) !important;
+          transform: translateY(-2px);
+          box-shadow: 0 6px 15px rgba(255, 136, 0, 0.4);
+      }
+      .btn-block {
+          display: block;
+          width: 100%;
+      }
+      a {
+          color: #ff7700;
+          transition: color 0.2s ease;
+      }
+      a:hover {
+          color: #ff5500;
+          text-decoration: none;
+      }
+      button[type="submit"] {
+        font-size: 16px;
+        font-weight: 600 !important;
       }
   </style>
 <div class="login-box">
@@ -29,7 +72,7 @@
       </script>
     <?php endif;?>
   <!-- /.login-logo -->
-  <center><img src="./" alt="System Logo" class="img-thumbnail rounded-circle" id="logo-img"></center>
+  <center><img src="uploads/system-logo.png" alt="System Logo" class="img-thumbnail rounded-circle" id="logo-img"></center>
   <div class="clear-fix my-2"></div>
   <div class="card card-outline card-primary">
     <div class="card-header text-center">
@@ -48,7 +91,7 @@
           </div>
         </div>
         <div class="input-group mb-3">
-          <input type="password" class="form-control" name="password" placeholder="Password">
+          <input type="password" class="form-control" name="password" placeholder="Mot de passe">
           <div class="input-group-append">
             <div class="input-group-text">
               <span class="fas fa-lock"></span>
@@ -56,12 +99,12 @@
           </div>
         </div>
         <div class="row align-items-center">
-          <div class="col-8">
+          <div class="col-6">
             <a href="<?php echo base_url ?>">Retour au site</a>
           </div>
           <!-- /.col -->
-          <div class="col-4">
-            <button type="submit" class="btn btn-primary btn-sm btn-flat btn-block">Se connecter</button>
+          <div class="col-6">
+            <button type="submit" class="btn btn-primary btn-block">Se connecter</button>
           </div>
           <!-- /.col -->
         </div>
