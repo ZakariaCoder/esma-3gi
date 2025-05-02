@@ -167,9 +167,9 @@
   /* Hero Section */
   .hero {
     position: relative;
-    background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), 
-                url('https://images.unsplash.com/photo-1605810230434-7631ac76ec81?ixlib=rb-1.2.1&auto=format&fit=crop&w=1920&q=80') center/cover no-repeat;
-    height: 60vh;
+    background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.6)), 
+                url('../image/coworking spaces (3).jpg') 50% 26%/cover no-repeat;
+    height: 80dvh;
     min-height: 500px;
     display: flex;
     align-items: center;
