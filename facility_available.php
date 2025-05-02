@@ -1,73 +1,68 @@
- 
- <style>
-    .thumb-holder{
-        height: 29vh;
-        width: 100%;
-    }
-    img.img-fluid.facility-thumbnail {
-        width: 100%;
-        height: 100%;
-        object-fit:scale-down;
-        object-position:center center;
-        transition: transform .3s ease-in;
-    }
-    .book_facility:hover .facility-thumbnail{
-        transform:scale(1.2)
-    }
- </style>
- <!-- Header-->
- <header class="bg-dark py-5" id="main-header">
-    <div class="container h-100 d-flex align-items-center justify-content-center w-100">
-        <div class="text-center text-white w-100">
-            <h1 class="display-4 fw-bolder">Available Facilities</h1>
-            <!-- <p class="lead fw-normal text-white-50 mb-0">We will take care of your vehicle</p> -->
-        </div>
+ <!-- Link to Facility CSS -->
+<link rel="stylesheet" href="<?php echo base_url ?>assets/css/facility.css">
+<link rel="stylesheet" href="<?php echo base_url ?>assets/css/footer.css">
+
+<!-- Hero Section -->
+<section class="facility-hero">
+    <div class="facility-hero-content">
+        <h1>Nos Espaces de Coworking</h1>
+        <p>Découvrez et réservez l'espace idéal pour vos besoins professionnels</p>
     </div>
-</header>
-<!-- Section-->
-<section class="py-5">
-    <div class="container px-4 px-lg-5 mt-5">
-        <div class="row">
-            <div class="col-md-12">
-                <div class="form-group">
-                <div class="input-group mb-3">
-                    <input type="search" id="search" class="form-control" placeholder="Search Here" aria-label="Search Here" aria-describedby="basic-addon2">
-                    <div class="input-group-append">
-                        <span class="input-group-text bg-primary" id="basic-addon2"><i class="fa fa-search"></i></span>
-                    </div>
-                </div>
-                </div>
-                <div class="row gx-4 gx-lg-5 row-cols-1 row-cols-sm-1 row-cols-md-2 row-cols-xl-2" id="facility_list">
-                    <?php 
-                    $facilities = $conn->query("SELECT f.*, c.name as category FROM `facility_list` f inner join category_list c on f.category_id = c.id where f.delete_flag = 0  order by f.`facility_code`");
-                    while($row= $facilities->fetch_assoc()):
-                    ?>
-                    <a class="col item text-decoration-none text-dark book_facility" href="./?p=view_facility&id=<?php echo $row['id'] ?>" data-id="<?php echo $row['id'] ?>" >
-                        <div class="callout callout-primary border-primary rounded-0">
-                            <dl>
-                                <dt class="h3">
-                                    <center>
-                                        <div class="position-relative overflow-hidden thumb-holder">
-                                            <img src="<?= validate_image($row['image_path']) ?>" alt="" class="img-fluid facility-thumbnail">
-                                        </div>
-                                    </center>
-                                </dt>
-                                <dd class=" lh-1">
-                                    <div class="h4"><?php echo $row['category'] ?></div>
-                                    <div><?php echo $row['name'] ?></div>
-                                    <div class="clear-fix py-2"></div>
-                                    <p class="truncate-3 m-0"><?= strip_tags(html_entity_decode($row['description'])) ?></p>
-                                </dd>
-                            </dl>
-                        </div>
-                    </a>
-                    <?php endwhile; ?>
-                </div>
-                <div id="noResult" style="display:none" class="text-center"><b>No Result</b></div>
+</section>
+
+<!-- Search Section -->
+<section class="search-section">
+    <div class="container">
+        <div class="search-container">
+            <div class="search-box">
+                <input type="search" id="search" class="search-input" placeholder="Rechercher un espace...">
+                <button class="search-button">
+                    <i class="fa fa-search"></i>
+                </button>
             </div>
         </div>
     </div>
 </section>
+
+<!-- Facilities Section -->
+<section class="py-5">
+    <div class="container">
+        <h2 class="text-center mb-5">Espaces Disponibles</h2>
+        
+        <div class="facilities-grid" id="facility_list">
+            <?php 
+            $facilities = $conn->query("SELECT f.*, c.name as category FROM `facility_list` f inner join category_list c on f.category_id = c.id where f.delete_flag = 0 order by f.`facility_code`");
+            while($row = $facilities->fetch_assoc()):
+            ?>
+            <a class="facility-card item" href="./?p=view_facility&id=<?php echo $row['id'] ?>" data-id="<?php echo $row['id'] ?>">
+                <div class="facility-image-container">
+                    <span class="facility-category"><?php echo $row['category'] ?></span>
+                    <img src="<?= validate_image($row['image_path']) ?>" alt="<?php echo $row['name'] ?>" class="facility-image">
+                </div>
+                <div class="facility-content">
+                    <h3 class="facility-title"><?php echo $row['name'] ?></h3>
+                    <p class="facility-description"><?= strip_tags(html_entity_decode($row['description'])) ?></p>
+                    <div class="facility-meta">
+                        <?php if(isset($row['price']) && !empty($row['price'])): ?>
+                        <div class="facility-price"><?php echo number_format($row['price'], 2) ?> DH</div>
+                        <?php else: ?>
+                        <div class="facility-price">Sur demande</div>
+                        <?php endif; ?>
+                        <button class="facility-button">Réserver</button>
+                    </div>
+                </div>
+            </a>
+            <?php endwhile; ?>
+        </div>
+        
+        <div id="noResult" style="display:none" class="no-results">
+            <i class="fa fa-search fa-3x mb-3" style="color: #ddd;"></i>
+            <h3>Aucun résultat trouvé</h3>
+            <p>Essayez d'autres termes de recherche</p>
+        </div>
+    </div>
+</section>
+
 <script>
     $(function(){
         $('#search').on('input',function(){
