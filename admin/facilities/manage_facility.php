@@ -1,4 +1,5 @@
 <?php
+require_once(dirname(__DIR__, 2) . '/config.php');
 // Clear any existing flashdata to prevent duplicate messages
 if(isset($_SESSION['flashdata']['success'])){
     unset($_SESSION['flashdata']['success']);
@@ -14,7 +15,7 @@ if(isset($_GET['id']) && !empty($_GET['id']) && $_GET['id'] > 0){
     echo "<script>console.log('Parsed facility ID: {$facility_id}');</script>";
     
     // Query the facility data
-    $qry = $conn->query("SELECT * FROM `facility_list` WHERE id = '{$facility_id}'");
+    $qry = $conn->query("SELECT f.*, c.name as category_name FROM `facility_list` f LEFT JOIN category_list c ON f.category_id = c.id WHERE f.id = '{$facility_id}'");
     
     if($qry && $qry->num_rows > 0){
         $facility_data = $qry->fetch_assoc();
@@ -25,6 +26,10 @@ if(isset($_GET['id']) && !empty($_GET['id']) && $_GET['id'] > 0){
         // Set variables for form fields
         foreach($facility_data as $k => $v){
             $$k = $v;
+        }
+        // Also set category_name if present
+        if(isset($facility_data['category_name'])) {
+            $category_name = $facility_data['category_name'];
         }
     } else {
         echo "<script>console.log('No facility found with ID: {$facility_id}');</script>";

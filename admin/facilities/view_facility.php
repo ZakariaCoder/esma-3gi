@@ -1,23 +1,12 @@
 <?php
-// Debug the incoming ID
-echo "<script>console.log('View Facility - GET ID: " . (isset($_GET['id']) ? $_GET['id'] : 'not set') . "');</script>";
-
+require_once(dirname(__DIR__, 2) . '/config.php');
 if(isset($_GET['id']) && $_GET['id'] > 0){
-    // Store the ID in a variable for clarity
-    $facility_id = intval($_GET['id']);
-    echo "<script>console.log('View Facility - Parsed ID: {$facility_id}');</script>";
-    
-    $qry = $conn->query("SELECT f.*, c.name as category from `facility_list` f inner join category_list c on f.category_id = c.id where f.id = '{$facility_id}' ");
+    $id = intval($_GET['id']);
+    $qry = $conn->query("SELECT f.*, c.name as category from `facility_list` f inner join category_list c on f.category_id = c.id where f.id = '{$id}' ");
     if($qry->num_rows > 0){
-        $facility_data = $qry->fetch_assoc();
-        echo "<script>console.log('View Facility - Data found:', " . json_encode($facility_data) . ");</script>";
-        
-        foreach($facility_data as $k => $v){
+        foreach($qry->fetch_assoc() as $k => $v){
             $$k = stripslashes($v);
         }
-        
-        // Debug the ID variable after setting it
-        echo "<script>console.log('View Facility - ID variable after setting: {$id}');</script>";
     } else {
         echo "<script>alert('Facility not found!');</script>";
         echo "<script>window.location.href='./?page=facilities';</script>";
@@ -28,13 +17,22 @@ if(isset($_GET['id']) && $_GET['id'] > 0){
     exit;
 }
 ?>
+
 <style>
     .facility-img{
         width:100%;
         object-fit:scale-down;
         object-position:center center;
     }
-</style>
+</style><!-- Change this: -->
+<a class="dropdown-item" href="?page=facilities/view_facility&id=<?php echo $row['id'] ?>"><span class="fa fa-eye text-dark"></span> View</a>
+<div class="dropdown-divider"></div>
+<a class="dropdown-item" href="?page=facilities/manage_facility&id=<?php echo $row['id'] ?>"><span class="fa fa-edit text-primary"></span> Edit</a>
+
+<!-- To this: -->
+<a class="dropdown-item view_data" href="javascript:void(0)" data-id="<?php echo $row['id'] ?>"><span class="fa fa-eye text-dark"></span> View</a>
+<div class="dropdown-divider"></div>
+<a class="dropdown-item edit_data" href="javascript:void(0)" data-id="<?php echo $row['id'] ?>"><span class="fa fa-edit text-primary"></span> Edit</a>
 <div class="content py-3">
     <div class="card card-outline rounded-0 card-primary shadow">
         <div class="card-header">
@@ -92,6 +90,9 @@ if(isset($_GET['id']) && $_GET['id'] > 0){
 </div>
 <script>
     $(document).ready(function(){
+        $('#edit_facility').click(function(){
+            uni_modal("Edit Facility","facilities/manage_facility.php?id=<?= isset($id) ? $id : '' ?>");
+        })
 		$('#delete_data').click(function(){
 			_conf("Are you sure to delete this facility permanently?","delete_facility",[])
 		})

@@ -62,11 +62,11 @@
 				                    <span class="sr-only">Toggle Dropdown</span>
 				                  </button>
 				                  <div class="dropdown-menu" role="menu">
-                                    <a class="dropdown-item" href="?page=facilities/view_facility&id=<?php echo $row['id'] ?>"><span class="fa fa-eye text-dark"></span> View</a>
+                                    <a class="dropdown-item view_data" href="javascript:void(0)" data-id="<?php echo isset($row['id']) ? $row['id'] : 'ERR' ?>"><span class="fa fa-eye text-dark"></span> View</a> <!-- DEBUG: id=<?php echo isset($row['id']) ? $row['id'] : 'ERR' ?> -->
 				                    <div class="dropdown-divider"></div>
-				                    <a class="dropdown-item" href="?page=facilities/manage_facility&id=<?php echo $row['id'] ?>"><span class="fa fa-edit text-primary"></span> Edit</a>
+				                    <a class="dropdown-item edit_data" href="javascript:void(0)" data-id="<?php echo isset($row['id']) ? $row['id'] : 'ERR' ?>"><span class="fa fa-edit text-primary"></span> Edit</a> <!-- DEBUG: id=<?php echo isset($row['id']) ? $row['id'] : 'ERR' ?> -->
 				                    <div class="dropdown-divider"></div>
-				                    <a class="dropdown-item delete_data" href="javascript:void(0)" data-id="<?php echo $row['id'] ?>"><span class="fa fa-trash text-danger"></span> Delete</a>
+				                    <a class="dropdown-item delete_data" href="javascript:void(0)" data-id="<?php echo isset($row['id']) ? $row['id'] : 'ERR' ?>"><span class="fa fa-trash text-danger"></span> Delete</a> <!-- DEBUG: id=<?php echo isset($row['id']) ? $row['id'] : 'ERR' ?> -->
 				                  </div>
 							</td>
 						</tr>
@@ -79,11 +79,16 @@
 </div>
 <script>
 	$(document).ready(function(){
+		$('.view_data').click(function(){
+			uni_modal("Facility Details","facilities/view_facility.php?id="+$(this).attr('data-id'));
+		})
+		$('.edit_data').click(function(){
+			uni_modal("Edit Facility","facilities/manage_facility.php?id="+$(this).attr('data-id'));
+		})
 		$('.delete_data').click(function(){
 			_conf("Are you sure to delete this Facility permanently?","delete_facility",[$(this).attr('data-id')])
 		})
         $('.table th, .table td').addClass("align-middle px-2 py-1")
-		$('.table').dataTable();
 		$('.table').dataTable();
 	})
 	function delete_facility($id){
