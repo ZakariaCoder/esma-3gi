@@ -19,10 +19,12 @@
           height:15em;
           object-fit:scale-down;
           object-position:center center;
+          background-color: transparent;
+          backdrop-filter: brightness(0.5);
       }
   </style>
 <div class="login-box">
-<center><img src="uploads/system-logo.png" alt="System Logo" class="img-thumbnail rounded-circle" id="logo-img"></center>
+<center><img src="../uploads/system-logo.png" alt="System Logo" class="img-thumbnail rounded-circle" id="logo-img"></center>
   <div class="clear-fix my-2"></div>
   <!-- /.login-logo -->
   <div class="card card-outline card-primary">

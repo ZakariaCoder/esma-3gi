@@ -29,14 +29,14 @@
       </script>
     <?php endif;?>
   <!-- /.login-logo -->
-  <center><img src="uploads/system-logo.png" alt="System Logo" class="img-thumbnail rounded-circle" id="logo-img"></center>
+  <center><img src="./" alt="System Logo" class="img-thumbnail rounded-circle" id="logo-img"></center>
   <div class="clear-fix my-2"></div>
   <div class="card card-outline card-primary">
     <div class="card-header text-center">
       <a href="./" class="h1 text-decoration-none"><b>Connexion</b></a>
     </div>
     <div class="card-body">
-      <p class="login-box-msg">Sign in to start your session</p>
+      <p class="login-box-msg">Connectez-vous pour commencer votre session</p>
 
       <form id="clogin-frm" action="" method="post">
         <div class="input-group mb-3">
@@ -57,17 +57,17 @@
         </div>
         <div class="row align-items-center">
           <div class="col-8">
-            <a href="<?php echo base_url ?>">Back to Site</a>
+            <a href="<?php echo base_url ?>">Retour au site</a>
           </div>
           <!-- /.col -->
           <div class="col-4">
-            <button type="submit" class="btn btn-primary btn-sm btn-flat btn-block">Sign In</button>
+            <button type="submit" class="btn btn-primary btn-sm btn-flat btn-block">Se connecter</button>
           </div>
           <!-- /.col -->
         </div>
         <div class="row">
             <div class="col-12 text-center">
-             <a href="<?php echo base_url.'register.php' ?>">Create an Account</a>
+             <a href="<?php echo base_url.'register.php' ?>">Créer un compte</a>
             </div>
         </div>
       </form>

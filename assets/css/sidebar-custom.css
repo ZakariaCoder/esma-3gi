@@ -1,0 +1,30 @@
+/* Custom Sidebar Styling for Coworking Space Booking System */
+
+/* Replace the blue header with brand orange gradient */
+.main-sidebar .brand-link.bg-gradient-primary {
+    background: linear-gradient(135deg, #411000 0%, var(--brand-orange-dark) 100%) !important;
+    border-bottom: 1px solid var(--brand-orange-dark);
+}
+
+/* Improve sidebar styling */
+.main-sidebar {
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+}
+
+/* Logo styling */
+.main-sidebar .brand-link .brand-image {
+    border: 2px solid var(--gray-100);
+}
+
+/* Active menu item */
+.nav-sidebar .nav-item .nav-link.active {
+    background-color: var(--brand-orange) !important;
+    color: var(--text-light) !important;
+}
+
+/* Hover effect for menu items */
+.nav-sidebar .nav-item .nav-link:hover:not(.active) {
+    background-color: var(--brand-orange-light) !important;
+    color: var(--text-light) !important;
+    opacity: 0.8;
+}

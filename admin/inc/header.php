@@ -28,6 +28,8 @@
     <link rel="stylesheet" href="<?php echo base_url ?>dist/css/tailwind.min.css">
     <!-- Footer-specific CSS for styling -->
     <link rel="stylesheet" href="<?php echo base_url ?>assets/css/footer.css">
+    <!-- Custom sidebar styling with brand colors -->
+    <link rel="stylesheet" href="<?php echo base_url ?>assets/css/sidebar-custom.css">
     <!-- Custom Admin Dashboard Styling -->
     <link rel="stylesheet" href="<?php echo base_url ?>assets/css/admin-dashboard.css?v=<?php echo time(); ?>">
     <!-- overlayScrollbars -->
