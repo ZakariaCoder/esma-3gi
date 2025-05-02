@@ -1,11 +1,31 @@
 <?php
+// Debug the incoming ID
+echo "<script>console.log('View Facility - GET ID: " . (isset($_GET['id']) ? $_GET['id'] : 'not set') . "');</script>";
+
 if(isset($_GET['id']) && $_GET['id'] > 0){
-    $qry = $conn->query("SELECT f.*, c.name as category from `facility_list` f inner join category_list c on f.category_id = c.id where f.id = '{$_GET['id']}' ");
+    // Store the ID in a variable for clarity
+    $facility_id = intval($_GET['id']);
+    echo "<script>console.log('View Facility - Parsed ID: {$facility_id}');</script>";
+    
+    $qry = $conn->query("SELECT f.*, c.name as category from `facility_list` f inner join category_list c on f.category_id = c.id where f.id = '{$facility_id}' ");
     if($qry->num_rows > 0){
-        foreach($qry->fetch_assoc() as $k => $v){
-            $$k=stripslashes($v);
+        $facility_data = $qry->fetch_assoc();
+        echo "<script>console.log('View Facility - Data found:', " . json_encode($facility_data) . ");</script>";
+        
+        foreach($facility_data as $k => $v){
+            $$k = stripslashes($v);
         }
+        
+        // Debug the ID variable after setting it
+        echo "<script>console.log('View Facility - ID variable after setting: {$id}');</script>";
+    } else {
+        echo "<script>alert('Facility not found!');</script>";
+        echo "<script>window.location.href='./?page=facilities';</script>";
+        exit;
     }
+} else {
+    echo "<script>window.location.href='./?page=facilities';</script>";
+    exit;
 }
 ?>
 <style>
@@ -20,8 +40,10 @@ if(isset($_GET['id']) && $_GET['id'] > 0){
         <div class="card-header">
             <h4 class="card-title">Facility Details</h4>
             <div class="card-tools">
-                <a class="btn btn-primary btn-sm btn-flat" href="./?page=facilities/manage_facility&id=<?= isset($id) ? $id : "" ?>"><i class="fa fa-edit"></i> Edit</a>
-                <a class="btn btn-danger btn-sm btn-flat" href="javascript:void(0)>" id="delete_data"><i class="fa fa-trash"></i> Delete</a>
+                <?php if(isset($facility_id) && $facility_id > 0): ?>
+                <a class="btn btn-primary btn-sm btn-flat" href="./?page=facilities/manage_facility&id=<?= $facility_id ?>" onclick="console.log('Edit button clicked with ID: <?= $facility_id ?>');"><i class="fa fa-edit"></i> Edit</a>
+                <a class="btn btn-danger btn-sm btn-flat" href="javascript:void(0);" id="delete_data"><i class="fa fa-trash"></i> Delete</a>
+                <?php endif; ?>
                 <a class="btn btn-default border btn-sm btn-flat" href="./?page=facilities"><i class="fa fa-angle-left"></i> Back</a>
             </div>
         </div>

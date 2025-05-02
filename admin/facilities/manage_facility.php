@@ -1,10 +1,36 @@
 <?php
-if(isset($_GET['id']) && $_GET['id'] > 0){
-    $qry = $conn->query("SELECT * from `facility_list` where id = '{$_GET['id']}' ");
-    if($qry->num_rows > 0){
-        foreach($qry->fetch_assoc() as $k => $v){
-            $$k=stripslashes($v);
+// Clear any existing flashdata to prevent duplicate messages
+if(isset($_SESSION['flashdata']['success'])){
+    unset($_SESSION['flashdata']['success']);
+}
+
+// Debug the incoming ID
+echo "<script>console.log('GET ID: " . (isset($_GET['id']) ? $_GET['id'] : 'not set') . "');</script>";
+
+if(isset($_GET['id']) && !empty($_GET['id']) && $_GET['id'] > 0){
+    $facility_id = intval($_GET['id']);
+    
+    // Debug the parsed ID
+    echo "<script>console.log('Parsed facility ID: {$facility_id}');</script>";
+    
+    // Query the facility data
+    $qry = $conn->query("SELECT * FROM `facility_list` WHERE id = '{$facility_id}'");
+    
+    if($qry && $qry->num_rows > 0){
+        $facility_data = $qry->fetch_assoc();
+        
+        // Debug the retrieved data
+        echo "<script>console.log('Facility data found:', " . json_encode($facility_data) . ");</script>";
+        
+        // Set variables for form fields
+        foreach($facility_data as $k => $v){
+            $$k = $v;
         }
+    } else {
+        echo "<script>console.log('No facility found with ID: {$facility_id}');</script>";
+        echo "<script>alert('Facility not found!');</script>";
+        echo "<script>window.location.href='./?page=facilities';</script>";
+        exit;
     }
 }
 ?>
@@ -125,7 +151,23 @@ if(isset($_GET['id']) && $_GET['id'] > 0){
 				},
 				success:function(resp){
 					if(typeof resp =='object' && resp.status == 'success'){
-						location.href = "./?page=facilities/view_facility&id="+resp.id;
+						end_loader();
+						// Show success in modal only, not as flashdata
+						$('#successModal').find('.modal-body').html('<div class="alert alert-success">'+resp.msg+'</div>');
+						$('#successModal').modal('show');
+						
+						// Set a timeout to redirect after showing the modal
+						setTimeout(function(){
+							// Clear any flashdata before redirecting
+							$.ajax({
+								url: _base_url_+"classes/Master.php?f=clear_flashdata",
+								method: 'POST',
+								data: {},
+								success: function() {
+									location.href = "./?page=facilities/view_facility&id="+resp.id;
+								}
+							});
+						}, 2000);
 					}else if(resp.status == 'failed' && !!resp.msg){
                         var el = $('<div>')
                             el.addClass("alert alert-danger err-msg").text(resp.msg)
@@ -157,3 +199,23 @@ if(isset($_GET['id']) && $_GET['id'] > 0){
 		    })
 	})
 </script>
+
+<!-- Success Modal -->
+<div class="modal fade" id="successModal" tabindex="-1" role="dialog" aria-labelledby="successModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header bg-success">
+        <h5 class="modal-title text-white" id="successModalLabel">Success</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <!-- Success message will be inserted here -->
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>

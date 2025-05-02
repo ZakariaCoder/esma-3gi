@@ -99,16 +99,15 @@ Class Master extends DBConnection {
 				$data .= " `{$k}`='{$v}' ";
 			}
 		}
-		if(isset($reg_no)){
-			$check = $this->conn->query("SELECT * FROM `facility_list` where `name` = '{$name}' ".(!empty($id) ? " and id != {$id} " : "")." ")->num_rows;
-			if($this->capture_err())
-				return $this->capture_err();
-			if($check > 0){
-				$resp['status'] = 'failed';
-				$resp['msg'] = " Facility already exist.";
-				return json_encode($resp);
-				exit;
-			}
+		
+		$check = $this->conn->query("SELECT * FROM `facility_list` where `name` = '{$name}' ".(!empty($id) ? " and id != {$id} " : "")." ")->num_rows;
+		if($this->capture_err())
+			return $this->capture_err();
+		if($check > 0){
+			$resp['status'] = 'failed';
+			$resp['msg'] = " Facility already exist.";
+			return json_encode($resp);
+			exit;
 		}
 		
 		if(empty($id)){
@@ -263,6 +262,15 @@ Class Master extends DBConnection {
 		}
 		return json_encode($resp);
 	}
+
+	function clear_flashdata(){
+		// Clear any existing flashdata
+		if(isset($_SESSION['flashdata'])){
+			unset($_SESSION['flashdata']);
+		}
+		$resp['status'] = 'success';
+		return json_encode($resp);
+	}
 }
 
 $Master = new Master();
@@ -289,6 +297,9 @@ switch ($action) {
 	break;
 	case 'update_booking_status':
 		echo $Master->update_booking_status();
+	break;
+	case 'clear_flashdata':
+		echo $Master->clear_flashdata();
 	break;
 	default:
 		// echo $sysset->index();

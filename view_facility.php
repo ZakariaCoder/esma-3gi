@@ -1,11 +1,18 @@
 <?php
 if(isset($_GET['id']) && $_GET['id'] > 0){
-    $qry = $conn->query("SELECT f.*, c.name as category from `facility_list` f inner join category_list c on f.category_id = c.id where f.id = '{$_GET['id']}' ");
+    $qry = $conn->query("SELECT f.*, c.name as category from `facility_list` f inner join category_list c on f.category_id = c.id where f.id = '{$_GET['id']}' and f.delete_flag = 0 and f.status = 1");
     if($qry->num_rows > 0){
         foreach($qry->fetch_assoc() as $k => $v){
             $$k=stripslashes($v);
         }
+    } else {
+        echo "<script>alert('Espace non trouvé ou non disponible!');</script>";
+        echo "<script>window.location.href='./?p=facility_available';</script>";
+        exit;
     }
+} else {
+    echo "<script>window.location.href='./?p=facility_available';</script>";
+    exit;
 }
 ?>
 <style>
