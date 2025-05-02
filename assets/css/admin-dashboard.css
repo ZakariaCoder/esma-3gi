@@ -1,0 +1,319 @@
+/* Admin Dashboard Custom Styling
+   Inspired by home.css and about.css
+*/
+
+:root {
+    --primary: #f1683a;
+    --primary-light: #ff8a60;
+    --primary-dark: #d14e25;
+    --text-dark: #333333;
+    --text-light: #ffffff;
+    --bg-light: #f9f9f9;
+    --bg-white: #ffffff;
+    --bg-grey: #f5f5f5;
+    --shadow: rgba(0, 0, 0, 0.2);
+    --brand-orange: #f1683a;
+    --brand-orange-light: #f57e55;
+    --brand-orange-dark: #e05326;
+    --gray-50: #f9fafb;
+    --gray-100: #f3f4f6;
+    --gray-200: #e5e7eb;
+    --gray-300: #d1d5db;
+    --gray-400: #9ca3af;
+    --gray-500: #6b7280;
+    --gray-600: #4b5563;
+    --gray-700: #374151;
+    --gray-800: #1f2937;
+    --gray-900: #111827;
+}
+
+/* Modern Card Styling */
+.info-box {
+    border-radius: 10px !important;
+    box-shadow: 0 5px 15px var(--shadow) !important;
+    transition: all 0.3s ease !important;
+    overflow: hidden;
+    border: none !important;
+}
+
+.info-box:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15) !important;
+}
+
+.info-box-icon {
+    border-radius: 10px 0 0 10px !important;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.info-box-content {
+    padding: 15px !important;
+}
+
+.info-box-text {
+    font-weight: 600;
+    font-size: 1rem;
+    margin-bottom: 5px;
+}
+
+.info-box-number {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--primary);
+}
+
+/* Dashboard Welcome Section */
+.welcome-section {
+    background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.7)), 
+                url('../image/coworking spaces (3).jpg') 50% 26%/cover no-repeat;
+    border-radius: 10px;
+    padding: 3rem 2rem;
+    margin-bottom: 2rem;
+    color: var(--text-light);
+    text-align: center;
+    position: relative;
+}
+
+.welcome-section h1 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    animation: fadeIn 1s ease-in;
+}
+
+.welcome-section p {
+    font-size: 1.2rem;
+    margin-bottom: 1.5rem;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+    animation: fadeIn 1.3s ease-in;
+}
+
+/* Section Styling */
+.section-title {
+    font-size: 2rem;
+    font-weight: 700;
+    margin-bottom: 1.5rem;
+    position: relative;
+    padding-bottom: 10px;
+    color: var(--text-dark);
+}
+
+.section-title span {
+    color: var(--primary);
+}
+
+.section-title:after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 50px;
+    height: 3px;
+    background-color: var(--primary);
+}
+
+/* Card Styling */
+.card {
+    border-radius: 10px !important;
+    box-shadow: 0 5px 15px var(--shadow) !important;
+    border: none !important;
+    transition: all 0.3s ease;
+    overflow: hidden;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15) !important;
+}
+
+.card-header {
+    background-color: var(--bg-white) !important;
+    border-bottom: 1px solid var(--gray-200) !important;
+    padding: 1.25rem !important;
+}
+
+.card-title {
+    font-weight: 700;
+    color: var(--text-dark);
+    margin-bottom: 0;
+}
+
+.card-body {
+    padding: 1.5rem !important;
+}
+
+/* Button Styling */
+.btn-primary {
+    background-color: var(--primary) !important;
+    border-color: var(--primary) !important;
+    border-radius: 5px !important;
+    padding: 0.5rem 1.5rem !important;
+    font-weight: 600 !important;
+    transition: all 0.3s ease !important;
+}
+
+.btn-primary:hover {
+    background-color: var(--primary-light) !important;
+    border-color: var(--primary-light) !important;
+    transform: translateY(-2px);
+}
+
+/* Sidebar Styling */
+.main-sidebar {
+    background: linear-gradient(to bottom, #2c3e50, #1a252f) !important;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.1) !important;
+}
+
+.brand-link {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1) !important;
+    padding: 1rem 1rem !important;
+}
+
+.brand-text {
+    font-weight: 700 !important;
+    font-size: 1.2rem !important;
+}
+
+.nav-sidebar .nav-item {
+    margin-bottom: 5px;
+}
+
+.nav-sidebar .nav-link {
+    border-radius: 5px !important;
+    margin: 0 0.5rem !important;
+    padding: 0.75rem 1rem !important;
+    transition: all 0.3s ease !important;
+}
+
+.nav-sidebar .nav-link:hover {
+    background-color: rgba(255, 255, 255, 0.1) !important;
+    color: var(--primary-light) !important;
+}
+
+.nav-sidebar .nav-link.active {
+    background-color: var(--primary) !important;
+    color: var(--text-light) !important;
+}
+
+.nav-sidebar .nav-icon {
+    margin-right: 0.75rem !important;
+}
+
+/* Table Styling */
+.table {
+    border-radius: 10px !important;
+    overflow: hidden !important;
+}
+
+.table thead th {
+    background-color: var(--bg-grey) !important;
+    border-bottom: 2px solid var(--primary) !important;
+    color: var(--text-dark) !important;
+    font-weight: 700 !important;
+    padding: 1rem !important;
+}
+
+.table tbody td {
+    padding: 1rem !important;
+    vertical-align: middle !important;
+}
+
+.table-striped tbody tr:nth-of-type(odd) {
+    background-color: var(--gray-50) !important;
+}
+
+.table-hover tbody tr:hover {
+    background-color: rgba(241, 104, 58, 0.05) !important;
+}
+
+/* Form Styling */
+.form-control {
+    border-radius: 5px !important;
+    padding: 0.75rem 1rem !important;
+    border: 1px solid var(--gray-300) !important;
+    transition: all 0.3s ease !important;
+}
+
+.form-control:focus {
+    border-color: var(--primary) !important;
+    box-shadow: 0 0 0 0.2rem rgba(241, 104, 58, 0.25) !important;
+}
+
+.form-group label {
+    font-weight: 600 !important;
+    color: var(--gray-700) !important;
+    margin-bottom: 0.5rem !important;
+}
+
+/* Animation */
+@keyframes fadeIn {
+    0% { opacity: 0; }
+    100% { opacity: 1; }
+}
+
+/* Dashboard Cover Image */
+#cover_img_dash {
+    border-radius: 10px !important;
+    box-shadow: 0 5px 15px var(--shadow) !important;
+    margin-top: 2rem !important;
+}
+
+/* Navbar Styling */
+.navbar {
+    background: linear-gradient(to right, #2c3e50, #4b6cb7) !important;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1) !important;
+}
+
+.navbar-light .navbar-nav .nav-link {
+    color: var(--text-light) !important;
+    font-weight: 600 !important;
+    padding: 0.75rem 1rem !important;
+    transition: all 0.3s ease !important;
+}
+
+.navbar-light .navbar-nav .nav-link:hover {
+    color: var(--primary-light) !important;
+}
+
+/* Content Wrapper */
+.content-wrapper {
+    background-color: var(--bg-light) !important;
+    padding: 20px !important;
+}
+
+/* Pagination */
+.pagination .page-item .page-link {
+    color: var(--primary) !important;
+    border-radius: 5px !important;
+    margin: 0 3px !important;
+    transition: all 0.3s ease !important;
+}
+
+.pagination .page-item.active .page-link {
+    background-color: var(--primary) !important;
+    border-color: var(--primary) !important;
+    color: var(--text-light) !important;
+}
+
+.pagination .page-item .page-link:hover {
+    background-color: var(--gray-100) !important;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .welcome-section {
+        padding: 2rem 1rem;
+    }
+    
+    .welcome-section h1 {
+        font-size: 2rem;
+    }
+    
+    .info-box {
+        margin-bottom: 1rem !important;
+    }
+}

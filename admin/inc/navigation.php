@@ -2,7 +2,7 @@
 <!-- Main Sidebar Container -->
       <aside class="main-sidebar sidebar-dark-primary bg-gradient-dark text-light elevation-4 sidebar-no-expand">
         <!-- Brand Logo -->
-        <a href="<?php echo base_url ?>admin" class="brand-link bg-gradient-primary text-sm text-light">
+        <a href="<?php echo base_url ?>admin" class="brand-link bg-gradient-primary text-light">
         <img src="<?php echo validate_image($_settings->info('logo'))?>" alt="Store Logo" class="brand-image img-circle elevation-3 bg-gradient-light" style="opacity: .8;width: 1.6rem;height: 1.6rem;max-height: unset">
         <span class="brand-text font-weight-light"><?php echo $_settings->info('short_name') ?></span>
         </a>
@@ -14,9 +14,9 @@
           <div class="os-size-auto-observer observed" style="height: calc(100% + 1px); float: left;">
             <div class="os-resize-observer"></div>
           </div>
-          <div class="os-content-glue" style="margin: 0px -8px; width: 249px; height: 646px;"></div>
+          <div class="os-content-glue" style="margin: 0px -8px; width: 249px; height: auto;"></div>
           <div class="os-padding">
-            <div class="os-viewport os-viewport-native-scrollbars-invisible" style="overflow-y: scroll;">
+            <div class="os-viewport os-viewport-native-scrollbars-invisible" style="overflow-y: auto;">
               <div class="os-content" style="padding: 0px 8px; height: 100%; width: 100%;">
                 <!-- Sidebar user panel (optional) -->
                 <div class="clearfix"></div>

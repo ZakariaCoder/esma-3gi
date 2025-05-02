@@ -5,7 +5,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-  	<title><?php echo $_settings->info('title') != false ? $_settings->info('title').' | ' : '' ?><?php echo $_settings->info('name') ?></title>
+  	<title>Coworking Space Booking System - Admin</title>
     <link rel="icon" href="uploads/system-logo.png" />
     <!-- Google Font: Source Sans Pro -->
     <!-- <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&amp;display=fallback"> -->
@@ -24,6 +24,12 @@
     <!-- Theme style -->
     <link rel="stylesheet" href="<?php echo base_url ?>dist/css/adminlte.css">
     <link rel="stylesheet" href="<?php echo base_url ?>dist/css/custom.css">
+    <!-- Home page footer styling (Tailwind or custom) -->
+    <link rel="stylesheet" href="<?php echo base_url ?>dist/css/tailwind.min.css">
+    <!-- Footer-specific CSS for styling -->
+    <link rel="stylesheet" href="<?php echo base_url ?>assets/css/footer.css">
+    <!-- Custom Admin Dashboard Styling -->
+    <link rel="stylesheet" href="<?php echo base_url ?>assets/css/admin-dashboard.css?v=<?php echo time(); ?>">
     <!-- overlayScrollbars -->
     <link rel="stylesheet" href="<?php echo base_url ?>plugins/overlayScrollbars/css/OverlayScrollbars.min.css">
     <!-- summernote -->

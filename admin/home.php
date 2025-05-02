@@ -1,5 +1,7 @@
-<h1 class="">Welcome to <?php echo $_settings->info('name') ?></h1>
-<hr>
+<div class="welcome-section">
+  <h1>Welcome to <?php echo $_settings->info('name') ?></h1>
+  <p>Manage your coworking space bookings, facilities, and clients all in one place.</p>
+</div>
 <style>
   #cover_img_dash{
     width:100%;
@@ -8,6 +10,7 @@
     object-position:bottom center;
   }
 </style>
+<h2 class="section-title">Dashboard <span>Statistics</span></h2>
 <div class="row">
           <div class="col-12 col-sm-6 col-md-3">
             <div class="info-box">
@@ -88,6 +91,44 @@
           </div>
         </div>
         <hr>
-    <div class="text-center">
-      <img src="<?= validate_image($_settings->info('cover')) ?>" alt="System Cover" class="w-100 img-fluid img-thumnail border" id="cover_img_dash">
-    </div>
+    <section class="mt-4">
+      <h2 class="section-title">System <span>Overview</span></h2>
+      <div class="row">
+        <div class="col-md-4 mb-4">
+          <div class="card h-100">
+            <div class="card-body">
+              <div class="feature-icon mb-3">📊</div>
+              <h3 class="card-title">Dashboard Management</h3>
+              <p class="text-gray-600">Monitor bookings, track facility usage, and view client statistics all in one place.</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4 mb-4">
+          <div class="card h-100">
+            <div class="card-body">
+              <div class="feature-icon mb-3">🔧</div>
+              <h3 class="card-title">System Configuration</h3>
+              <p class="text-gray-600">Customize system settings, manage categories, and control user access levels.</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4 mb-4">
+          <div class="card h-100">
+            <div class="card-body">
+              <div class="feature-icon mb-3">📱</div>
+              <h3 class="card-title">Client Management</h3>
+              <p class="text-gray-600">View and manage client accounts, bookings, and communication in a streamlined interface.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    
+    <section class="mt-4">
+      <h2 class="section-title">Coworking <span>Spaces</span></h2>
+      <div class="card">
+        <div class="card-body p-0">
+          <img src="<?= validate_image($_settings->info('cover')) ?>" alt="System Cover" class="w-100 img-fluid" id="cover_img_dash">
+        </div>
+      </div>
+    </section>
