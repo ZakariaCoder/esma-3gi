@@ -1,8 +1,11 @@
+<link rel="stylesheet" href="<?php echo base_url ?>assets/css/user-profile.css">
+<link rel="stylesheet" href="<?php echo base_url ?>assets/css/footer.css">
+
 <div class="content py-5 mt-5">
-    <div class="container">
-        <div class="card card-outline card-primary shadow rounded-0">
+    <div class="container" style="margin-top: 5rem; margin-bottom: 5rem;">
+        <div class="card card-outline card-primary shadow">
             <div class="card-header">
-                <h4 class="card-title">My Booking List</h4>
+                <h4 class="card-title">Mes Réservations</h4>
             </div>
             <div class="card-body">
                 <table class="table table-striped table-bordered">
@@ -18,11 +21,11 @@
                     <thead>
                         <tr>
                             <th class="text-center">#</th>
-                            <th class="text-center">Date Booked</th>
-                            <th class="text-center">Ref Code</th>
-                            <th class="text-center">Facility</th>
-                            <th class="text-center">Schedule</th>
-                            <th class="text-center">Status</th>
+                            <th class="text-center">Date de réservation</th>
+                            <th class="text-center">Code de référence</th>
+                            <th class="text-center">Espace</th>
+                            <th class="text-center">Période</th>
+                            <th class="text-center">Statut</th>
                             <th class="text-center">Actions</th>
                         </tr>
                     </thead>
@@ -53,22 +56,22 @@
                                 <?php 
                                     switch($row['status']){
                                         case 0:
-                                            echo "<span class='badge badge-secondary bg-gradient-secondary px-3 rounded-pill'>Pending</span>";
+                                            echo "<span class='badge badge-secondary bg-gradient-secondary px-3 rounded-pill'>En attente</span>";
                                             break;
                                         case 1:
-                                            echo "<span class='badge badge-primary bg-gradient-primary px-3 rounded-pill'>Confirmed</span>";
+                                            echo "<span class='badge badge-primary bg-gradient-primary px-3 rounded-pill'>Confirmée</span>";
                                             break;
                                         case 2:
-                                            echo "<span class='badge badge-warning bg-gradient-success px-3 rounded-pill'>Done</span>";
+                                            echo "<span class='badge badge-warning bg-gradient-success px-3 rounded-pill'>Terminée</span>";
                                             break;
                                         case 3:
-                                            echo "<span class='badge badge-danger bg-gradient-danger px-3 rounded-pill'>Cancelled</span>";
+                                            echo "<span class='badge badge-danger bg-gradient-danger px-3 rounded-pill'>Annulée</span>";
                                             break;
                                     }
                                 ?>
                             </td>
                             <td class="text-center">
-                                <button type="button" class="btn btn-flat btn-light border btn-sm view_data" data-id="<?= $row['id'] ?>">View</button>
+                                <button type="button" class="btn btn-primary btn-sm view_data" data-id="<?= $row['id'] ?>">Voir détails</button>
                             </td>
                         </tr>
                         <?php endwhile; ?>

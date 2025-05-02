@@ -6,10 +6,49 @@ if (session_status() === PHP_SESSION_NONE) {
 ?>
 <style>
   img#user_avatar {
-    width: 2em;
-    height: 2em;
+    width: 3.5em;
+    height: 3.5em;
     object-fit: cover;
     object-position: center center;
+    outline: 3px solid #f1683a;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+  }
+  
+  img#user_avatar:hover {
+    transform: scale(1.1);
+    box-shadow: 0 4px 15px rgba(241, 104, 58, 0.4);
+  }
+  
+  .nav-link.dropdown-toggle {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 8px 15px;
+    border-radius: 50px;
+    transition: all 0.3s ease;
+  }
+  
+  .nav-link.dropdown-toggle:hover {
+    background-color: rgba(241, 104, 58, 0.1);
+  }
+  
+  .dropdown-menu {
+    border: none;
+    border-radius: 12px;
+    box-shadow: 0 5px 25px rgba(0, 0, 0, 0.15);
+    overflow: hidden;
+    margin-top: 10px;
+  }
+  
+  .dropdown-item {
+    padding: 10px 20px;
+    transition: all 0.2s ease;
+  }
+  
+  .dropdown-item:hover {
+    background-color: #ffebdc;
+    color: #f1683a;
   }
 </style>
 <nav class="navbar navbar-expand-lg navbar-light bg-gradient-light fixed-top" id="topNavBar">
