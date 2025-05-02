@@ -1,6 +1,6 @@
 <div class="card card-outline card-primary shadow rounded-0">
     <div class="card-header">
-        <h3 class="card-title"><b>Booking List</b></h3>
+        <h3 class="card-title"><b>Liste des Réservations</b></h3>
     </div>
     <div class="card-body">
         <div class="container-fluid">
@@ -17,11 +17,11 @@
                 <thead>
                     <tr class="bg-gradient-dark text-light">
                         <th class="text-center">#</th>
-                        <th class="text-center">Date Booked</th>
-                        <th class="text-center">Ref. Code</th>
-                        <th class="text-center">Facility</th>
+                        <th class="text-center">Date de Réservation</th>
+                        <th class="text-center">Code Réf.</th>
+                        <th class="text-center">Espace</th>
                         <th class="text-center">Client</th>
-                        <th class="text-center">Status</th>
+                        <th class="text-center">Statut</th>
                         <th class="text-center">Action</th>
                     </tr>
                 </thead>
@@ -44,23 +44,23 @@
                                 <?php 
                                     switch($row['status']){
                                         case 0:
-                                            echo "<span class='badge badge-secondary bg-gradient-secondary px-3 rounded-pill'>Pending</span>";
+                                            echo "<span class='badge badge-secondary bg-gradient-secondary px-3 rounded-pill'>En Attente</span>";
                                             break;
                                         case 1:
-                                            echo "<span class='badge badge-primary bg-gradient-primary px-3 rounded-pill'>Confirmed</span>";
+                                            echo "<span class='badge badge-primary bg-gradient-primary px-3 rounded-pill'>Confirmée</span>";
                                             break;
                                         case 2:
-                                            echo "<span class='badge badge-warning bg-gradient-success px-3 rounded-pill'>Done</span>";
+                                            echo "<span class='badge badge-warning bg-gradient-success px-3 rounded-pill'>Terminée</span>";
                                             break;
                                         case 3:
-                                            echo "<span class='badge badge-danger bg-gradient-danger px-3 rounded-pill'>Cancelled</span>";
+                                            echo "<span class='badge badge-danger bg-gradient-danger px-3 rounded-pill'>Annulée</span>";
                                             break;
                                     }
                                 ?>
                             </td>
                             </td>
                             <td class="text-center">
-                                <a class="btn btn-flat btn-sm btn-default border view_data" href="javascript:void(0)" data-id="<?= $row['id'] ?>"><i class="fa fa-eye"></i> View</a>
+                                <a class="btn btn-flat btn-sm btn-default border view_data" href="javascript:void(0)" data-id="<?= $row['id'] ?>"><i class="fa fa-eye"></i> Voir</a>
                             </td>
                         </tr>
                     <?php endwhile; ?>
@@ -76,7 +76,7 @@
 		$('.table').dataTable();
 		$('.table').dataTable();
         $('.view_data').click(function(){
-            uni_modal("Booking Details","bookings/view_booking.php?id="+$(this).attr('data-id'))
+            uni_modal("Détails de la Réservation","bookings/view_booking.php?id="+$(this).attr('data-id'))
         })
     })
 </script>

@@ -27,7 +27,7 @@
                       <a href="./" class="nav-link nav-home">
                         <i class="nav-icon fas fa-tachometer-alt"></i>
                         <p>
-                          Dashboard
+                          Tableau de Bord
                         </p>
                       </a>
                     </li> 
@@ -35,7 +35,7 @@
                       <a href="<?php echo base_url ?>admin/?page=facilities" class="nav-link nav-facilities">
                         <i class="nav-icon fas fa-door-closed"></i>
                         <p>
-                          Facility List
+                          Liste des Espaces
                         </p>
                       </a>
                     </li>
@@ -43,7 +43,7 @@
                       <a href="<?php echo base_url ?>admin/?page=clients" class="nav-link nav-clients">
                         <i class="nav-icon fas fa-users"></i>
                         <p>
-                          Registered Clients
+                          Clients Inscrits
                         </p>
                       </a>
                     </li>
@@ -51,7 +51,7 @@
                       <a href="<?php echo base_url ?>admin/?page=bookings" class="nav-link nav-bookings">
                         <i class="nav-icon fas fa-tasks"></i>
                         <p>
-                          Booking List
+                          Liste des Réservations
                         </p>
                       </a>
                     </li>
@@ -61,7 +61,7 @@
                       <a href="<?php echo base_url ?>admin/?page=categories" class="nav-link nav-categories">
                         <i class="nav-icon fas fa-th-list"></i>
                         <p>
-                          Category List
+                          Liste des Catégories
                         </p>
                       </a>
                     </li>
@@ -69,7 +69,7 @@
                       <a href="<?php echo base_url ?>admin/?page=user/list" class="nav-link nav-user_list">
                         <i class="nav-icon fas fa-users-cog"></i>
                         <p>
-                          User List
+                          Liste des Utilisateurs
                         </p>
                       </a>
                     </li>
@@ -77,7 +77,7 @@
                       <a href="<?php echo base_url ?>admin/?page=system_info" class="nav-link nav-system_info">
                         <i class="nav-icon fas fa-cogs"></i>
                         <p>
-                          Settings
+                          Paramètres
                         </p>
                       </a>
                     </li>

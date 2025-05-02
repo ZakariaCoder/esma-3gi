@@ -145,7 +145,14 @@
 .card-body {
     padding: 1.5rem !important;
 }
-
+section.content>div>div.card-outline {
+    box-shadow: 0 5px 15px var(--shadow) !important;
+    margin-top: 25px;
+    border-radius: 15px;
+}
+section.content>div>div.card-outline:hover {
+    transform: translateY(0);
+}
 /* Button Styling */
 .btn-primary {
     background-color: var(--primary) !important;
@@ -207,6 +214,7 @@
 .table {
     border-radius: 10px !important;
     overflow: hidden !important;
+    margin-top: 20px !important;
 }
 
 .table thead th {
@@ -226,8 +234,9 @@
     background-color: var(--gray-50) !important;
 }
 
+/* Hover effect removed as requested */
 .table-hover tbody tr:hover {
-    background-color: rgba(241, 104, 58, 0.05) !important;
+    background-color: transparent !important;
 }
 
 /* Form Styling */

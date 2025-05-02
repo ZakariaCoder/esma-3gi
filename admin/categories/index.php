@@ -5,9 +5,9 @@
 <?php endif;?>
 <div class="card card-outline card-primary rounded-0 shadow">
 	<div class="card-header">
-		<h3 class="card-title">List of Categories</h3>
+		<h3 class="card-title">Liste des Catégories</h3>
 		<div class="card-tools">
-			<button type="button" id="create_new" class="btn btn-flat btn-primary btn-sm"><span class="fas fa-plus"></span>  Create New</button>
+			<button type="button" id="create_new" class="btn btn-flat btn-primary btn-sm"><span class="fas fa-plus"></span>  Créer Nouveau</button>
 		</div>
 	</div>
 	<div class="card-body">
@@ -24,10 +24,10 @@
 				<thead>
 					<tr>
 						<th>#</th>
-						<th>Date Created</th>
-						<th>Category</th>
+						<th>Date de Création</th>
+						<th>Catégorie</th>
 						<th>Description</th>
-						<th>Status</th>
+						<th>Statut</th>
 						<th>Action</th>
 					</tr>
 				</thead>
@@ -44,22 +44,22 @@
 							<td><p class="m-0 truncate-1"><?php echo $row['description'] ?></p></td>
 							<td class="text-center">
                                 <?php if($row['status'] == 1): ?>
-                                    <span class="badge badge-success px-3 rounded-pill">Active</span>
+                                    <span class="badge badge-success px-3 rounded-pill">Actif</span>
                                 <?php else: ?>
-                                    <span class="badge badge-danger px-3 rounded-pill">Inactive</span>
+                                    <span class="badge badge-danger px-3 rounded-pill">Inactif</span>
                                 <?php endif; ?>
                             </td>
 							<td align="center">
 								<button type="button" class="btn btn-flat btn-default btn-sm dropdown-toggle dropdown-icon" data-toggle="dropdown">
 									Action
-								<span class="sr-only">Toggle Dropdown</span>
+								<span class="sr-only">Basculer Menu</span>
 								</button>
 								<div class="dropdown-menu" role="menu">
-								<a class="dropdown-item view_data" href="javascript:void(0)" data-id="<?php echo $row['id'] ?>"><span class="fa fa-eye text-dark"></span> View</a>
+								<a class="dropdown-item view_data" href="javascript:void(0)" data-id="<?php echo $row['id'] ?>"><span class="fa fa-eye text-dark"></span> Voir</a>
 								<div class="dropdown-divider"></div>
-								<a class="dropdown-item edit_data" href="javascript:void(0)" data-id="<?php echo $row['id'] ?>"><span class="fa fa-edit text-primary"></span> Edit</a>
+								<a class="dropdown-item edit_data" href="javascript:void(0)" data-id="<?php echo $row['id'] ?>"><span class="fa fa-edit text-primary"></span> Modifier</a>
 								<div class="dropdown-divider"></div>
-								<a class="dropdown-item delete_data" href="javascript:void(0)" data-id="<?php echo $row['id'] ?>"><span class="fa fa-trash text-danger"></span> Delete</a>
+								<a class="dropdown-item delete_data" href="javascript:void(0)" data-id="<?php echo $row['id'] ?>"><span class="fa fa-trash text-danger"></span> Supprimer</a>
 								</div>
 							</td>
 						</tr>
@@ -72,16 +72,16 @@
 <script>
 	$(document).ready(function(){
 		$('#create_new').click(function(){
-			uni_modal("Add New Category","categories/manage_category.php");
+			uni_modal("Ajouter une Nouvelle Catégorie","categories/manage_category.php");
 		})
 		$('.edit_data').click(function(){
-			uni_modal("Edit Category","categories/manage_category.php?id="+$(this).attr('data-id'));
+			uni_modal("Modifier la Catégorie","categories/manage_category.php?id="+$(this).attr('data-id'));
 		})
 		$('.view_data').click(function(){
-			uni_modal("Edit Category","categories/view_category.php?id="+$(this).attr('data-id'));
+			uni_modal("Détails de la Catégorie","categories/view_category.php?id="+$(this).attr('data-id'));
 		})
 		$('.delete_data').click(function(){
-			_conf("Are you sure to delete this category permanently?","delete_category",[$(this).attr('data-id')])
+			_conf("Êtes-vous sûr de vouloir supprimer cette catégorie de façon permanente ?","delete_category",[$(this).attr('data-id')])
 		})
 		$('.table').dataTable();
 	})
@@ -94,14 +94,14 @@
 			dataType:"json",
 			error:err=>{
 				console.log(err)
-				alert_toast("An error occured.",'error');
+				alert_toast("Une erreur s'est produite.",'error');
 				end_loader();
 			},
 			success:function(resp){
 				if(typeof resp== 'object' && resp.status == 'success'){
 					location.reload();
 				}else{
-					alert_toast("An error occured.",'error');
+					alert_toast("Une erreur s'est produite.",'error');
 					end_loader();
 				}
 			}

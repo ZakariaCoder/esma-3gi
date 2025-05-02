@@ -10489,6 +10489,7 @@ body:not(.layout-fixed).layout-navbar-fixed.text-sm .wrapper .main-sidebar .side
   top: 0;
   z-index: 1033;
   padding-bottom: 26px !important;
+  overflow: visible;
 }
 
 .layout-navbar-fixed.text-sm .wrapper .content-wrapper {

@@ -55,7 +55,16 @@
     }
   })
 </script>
-<?php include(dirname(__DIR__, 2).'/inc/footer.php'); ?>
+<?php 
+// Get the main footer content
+$footer_content = file_get_contents(dirname(__DIR__, 2).'/inc/footer.php');
+
+// Fix the logo path for admin area
+$footer_content = str_replace('src="uploads/system-logo.png"', 'src="../uploads/system-logo.png"', $footer_content);
+
+// Output the modified footer
+echo $footer_content;
+?>
     </div>
     <!-- ./wrapper -->
    

@@ -30,6 +30,10 @@
     <link rel="stylesheet" href="<?php echo base_url ?>assets/css/footer.css">
     <!-- Custom sidebar styling with brand colors -->
     <link rel="stylesheet" href="<?php echo base_url ?>assets/css/sidebar-custom.css">
+    <!-- Custom dropdown styling -->
+    <link rel="stylesheet" href="<?php echo base_url ?>assets/css/dropdown-custom.css">
+    <!-- Custom admin home styling -->
+    <link rel="stylesheet" href="<?php echo base_url ?>assets/css/admin-home.css">
     <!-- Custom Admin Dashboard Styling -->
     <link rel="stylesheet" href="<?php echo base_url ?>assets/css/admin-dashboard.css?v=<?php echo time(); ?>">
     <!-- overlayScrollbars -->

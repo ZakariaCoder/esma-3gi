@@ -1,6 +1,6 @@
 <div class="welcome-section">
-  <h1>Welcome to <?php echo $_settings->info('name') ?></h1>
-  <p>Manage your coworking space bookings, facilities, and clients all in one place.</p>
+  <h1>Bienvenue sur <?php echo $_settings->info('name') ?></h1>
+  <p>Gérez vos réservations d'espaces de coworking, vos installations et vos clients en un seul endroit.</p>
 </div>
 <style>
   #cover_img_dash{
@@ -10,14 +10,14 @@
     object-position:bottom center;
   }
 </style>
-<h2 class="section-title">Dashboard <span>Statistics</span></h2>
+<h2 class="section-title">Statistiques du <span>Tableau de Bord</span></h2>
 <div class="row">
           <div class="col-12 col-sm-6 col-md-3">
             <div class="info-box">
               <span class="info-box-icon bg-gradient-dark elevation-1"><i class="fas fa-copyright"></i></span>
 
               <div class="info-box-content">
-                <span class="info-box-text">Total Categories</span>
+                <span class="info-box-text">Total des Catégories</span>
                 <span class="info-box-number">
                   <?php 
                     $inv = $conn->query("SELECT count(id) as total FROM category_list where delete_flag = 0 ")->fetch_assoc()['total'];
@@ -36,7 +36,7 @@
               <span class="info-box-icon bg-gradient-warning elevation-1"><i class="fas fa-door-closed"></i></span>
 
               <div class="info-box-content">
-                <span class="info-box-text">Total Facilities</span>
+                <span class="info-box-text">Total des Espaces</span>
                 <span class="info-box-number">
                   <?php 
                     $inv = $conn->query("SELECT count(id) as total FROM facility_list where delete_flag = 0 ")->fetch_assoc()['total'];
@@ -55,7 +55,7 @@
               <span class="info-box-icon bg-gradient-primary elevation-1"><i class="fas fa-users"></i></span>
 
               <div class="info-box-content">
-                <span class="info-box-text">Registered Clients</span>
+                <span class="info-box-text">Clients Inscrits</span>
                 <span class="info-box-number">
                   <?php 
                     $mechanics = $conn->query("SELECT sum(id) as total FROM `client_list` where delete_flag = 0 ")->fetch_assoc()['total'];
@@ -77,11 +77,11 @@
               <span class="info-box-icon bg-gradient-light elevation-1"><i class="fas fa-tasks"></i></span>
 
               <div class="info-box-content">
-                <span class="info-box-text">Pending Bookings</span>
+                <span class="info-box-text">Réservations en Attente</span>
                 <span class="info-box-number">
                 <?php 
-                    $services = $conn->query("SELECT sum(id) as total FROM `booking_list` where status = 0 ")->fetch_assoc()['total'];
-                    echo number_format($services);
+                    $services = $conn->query("SELECT COUNT(id) as total FROM `booking_list` WHERE status = 0")->fetch_assoc()['total'];
+                    echo number_format($services ?? 0);
                   ?>
                 </span>
               </div>
@@ -92,32 +92,38 @@
         </div>
         <hr>
     <section class="mt-4">
-      <h2 class="section-title">System <span>Overview</span></h2>
+      <h2 class="section-title">Aperçu du <span>Système</span></h2>
       <div class="row">
         <div class="col-md-4 mb-4">
           <div class="card h-100">
             <div class="card-body">
-              <div class="feature-icon mb-3">📊</div>
-              <h3 class="card-title">Dashboard Management</h3>
-              <p class="text-gray-600">Monitor bookings, track facility usage, and view client statistics all in one place.</p>
+              <div class="title-wrapper">
+                <span class="feature-icon">📊</span>
+                <h3 class="card-title">Gestion du Tableau de Bord</h3>
+              </div>
+              <p class="text-gray-600">Surveillez les réservations, suivez l'utilisation des installations et consultez les statistiques des clients en un seul endroit.</p>
             </div>
           </div>
         </div>
         <div class="col-md-4 mb-4">
           <div class="card h-100">
             <div class="card-body">
-              <div class="feature-icon mb-3">🔧</div>
-              <h3 class="card-title">System Configuration</h3>
-              <p class="text-gray-600">Customize system settings, manage categories, and control user access levels.</p>
+              <div class="title-wrapper">
+                <span class="feature-icon">🔧</span>
+                <h3 class="card-title">Configuration du Système</h3>
+              </div>
+              <p class="text-gray-600">Personnalisez les paramètres du système, gérez les catégories et contrôlez les niveaux d'accès des utilisateurs.</p>
             </div>
           </div>
         </div>
         <div class="col-md-4 mb-4">
           <div class="card h-100">
             <div class="card-body">
-              <div class="feature-icon mb-3">📱</div>
-              <h3 class="card-title">Client Management</h3>
-              <p class="text-gray-600">View and manage client accounts, bookings, and communication in a streamlined interface.</p>
+              <div class="title-wrapper">
+                <span class="feature-icon">📱</span>
+                <h3 class="card-title">Gestion des Clients</h3>
+              </div>
+              <p class="text-gray-600">Consultez et gérez les comptes clients, les réservations et la communication dans une interface simplifiée.</p>
             </div>
           </div>
         </div>

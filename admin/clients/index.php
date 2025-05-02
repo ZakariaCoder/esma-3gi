@@ -5,7 +5,7 @@
 <?php endif;?>
 <div class="card card-outline card-primary">
 	<div class="card-header">
-		<h3 class="card-title">List of Clients</h3>
+		<h3 class="card-title">Liste des Clients</h3>
 	</div>
 	<div class="card-body">
 		<div class="container-fluid">
@@ -22,10 +22,10 @@
 				<thead>
 					<tr>
 						<th>#</th>
-						<th>Date Created</th>
-						<th>Name</th>
+						<th>Date de Création</th>
+						<th>Nom</th>
 						<th>Contact</th>
-						<th>Status</th>
+						<th>Statut</th>
 						<th>Action</th>
 					</tr>
 				</thead>
@@ -50,20 +50,20 @@
 							</td>
 							<td class="text-center">
                                 <?php if($row['status'] == 1): ?>
-                                    <span class="badge badge-success rounded-pill px-3">Active</span>
+                                    <span class="badge badge-success rounded-pill px-3">Actif</span>
                                 <?php else: ?>
-                                    <span class="badge badge-danger rounded-pill px-3">Inactive</span>
+                                    <span class="badge badge-danger rounded-pill px-3">Inactif</span>
                                 <?php endif; ?>
                             </td>
 							<td align="center">
 								 <button type="button" class="btn btn-flat btn-default btn-sm dropdown-toggle dropdown-icon" data-toggle="dropdown">
 				                  		Action
-				                    <span class="sr-only">Toggle Dropdown</span>
+				                    <span class="sr-only">Basculer Menu</span>
 				                  </button>
 				                  <div class="dropdown-menu" role="menu">
-				                    <a class="dropdown-item" href="?page=clients/manage_client&id=<?php echo $row['id'] ?>"><span class="fa fa-edit text-primary"></span> Edit</a>
+				                    <a class="dropdown-item" href="?page=clients/manage_client&id=<?php echo $row['id'] ?>"><span class="fa fa-edit text-primary"></span> Modifier</a>
 				                    <div class="dropdown-divider"></div>
-				                    <a class="dropdown-item delete_data" href="javascript:void(0)" data-id="<?php echo $row['id'] ?>"><span class="fa fa-trash text-danger"></span> Delete</a>
+				                    <a class="dropdown-item delete_data" href="javascript:void(0)" data-id="<?php echo $row['id'] ?>"><span class="fa fa-trash text-danger"></span> Supprimer</a>
 				                  </div>
 							</td>
 						</tr>
@@ -77,7 +77,7 @@
 <script>
 	$(document).ready(function(){
 		$('.delete_data').click(function(){
-			_conf("Are you sure to delete this client permanently?","delete_client",[$(this).attr('data-id')])
+			_conf("Êtes-vous sûr de vouloir supprimer ce client de façon permanente ?","delete_client",[$(this).attr('data-id')])
 		})
 		$('.table').dataTable();
 	})
@@ -90,14 +90,14 @@
 			dataType:"json",
 			error:err=>{
 				console.log(err)
-				alert_toast("An error occured.",'error');
+				alert_toast("Une erreur s'est produite.",'error');
 				end_loader();
 			},
 			success:function(resp){
 				if(typeof resp== 'object' && resp.status == 'success'){
 					location.reload();
 				}else{
-					alert_toast("An error occured.",'error');
+					alert_toast("Une erreur s'est produite.",'error');
 					end_loader();
 				}
 			}

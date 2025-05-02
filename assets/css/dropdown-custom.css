@@ -1,0 +1,64 @@
+/* Custom Dropdown Styling for Coworking Space Booking System */
+
+/* Administrator dropdown styling */
+.dropdown-menu {
+  border-radius: 10px;
+  border: none;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+  padding: 10px 0;
+  background-color: var(--bg-white);
+  right: unset !important;
+  top: 41px;
+  width: fit-content;
+  /* left: 50px !important; */
+}
+
+.dropdown-menu .dropdown-item {
+  padding: 8px 20px;
+  color: var(--text-dark);
+  transition: all 0.2s ease;
+  border-radius: 5px;
+  margin: 0;
+  width: auto;
+}
+
+.dropdown-menu .dropdown-item:hover {
+  background-color: var(--brand-orange-light);
+  color: var(--text-light);
+}
+
+.dropdown-menu .dropdown-item i,
+.dropdown-menu .dropdown-item .fa,
+.dropdown-menu .dropdown-item .fas {
+  margin-right: 8px;
+  color: var(--brand-orange);
+}
+
+.dropdown-menu .dropdown-item:hover i,
+.dropdown-menu .dropdown-item:hover .fa,
+.dropdown-menu .dropdown-item:hover .fas {
+  color: var(--text-light);
+}
+
+.dropdown-divider {
+  border-top: 1px solid var(--gray-200);
+  margin: 5px 0;
+}
+
+/* User button styling */
+.btn-group .btn.badge.badge-light {
+  background: linear-gradient(135deg, var(--gray-100) 0%, var(--gray-200) 100%);
+  border: none;
+  color: var(--text-dark);
+  padding: 8px 15px;
+  transition: all 0.3s ease;
+}
+
+.btn-group .btn.badge.badge-light:hover {
+  background: linear-gradient(135deg, var(--gray-200) 0%, var(--gray-300) 100%);
+  transform: translateY(-2px);
+}
+
+.user-img {
+  border: 2px solid var(--brand-orange);
+}

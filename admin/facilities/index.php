@@ -5,9 +5,9 @@
 <?php endif;?>
 <div class="card card-outline card-primary">
 	<div class="card-header">
-		<h3 class="card-title">List of Facilities</h3>
+		<h3 class="card-title">Liste des Espaces</h3>
 		<div class="card-tools">
-			<a href="?page=facilities/manage_facility" class="btn btn-flat btn-primary"><span class="fas fa-plus"></span>  Create New</a>
+			<a href="?page=facilities/manage_facility" class="btn btn-flat btn-primary"><span class="fas fa-plus"></span>  Créer Nouveau</a>
 		</div>
 	</div>
 	<div class="card-body">
@@ -26,11 +26,11 @@
 				<thead>
 					<tr>
 						<th>#</th>
-						<th>Date Created</th>
-						<th>Code</th>
-						<th>Category</th>
-						<th>Name</th>
-						<th>Status</th>
+						<th>Date de Création</th>
+						<th>Prix</th>
+						<th>Catégorie</th>
+						<th>Nom</th>
+						<th>Statut</th>
 						<th>Action</th>
 					</tr>
 				</thead>
@@ -46,14 +46,14 @@
 						<tr>
 							<td class="text-center"><?php echo $i++; ?></td>
 							<td><?php echo date("Y-m-d H:i",strtotime($row['date_created'])) ?></td>
-							<td><?php echo ucwords($row['facility_code']) ?></td>
+							<td><?php echo number_format($row['price'], 2) ?> DH</td>
 							<td><?php echo ucwords($row['category']) ?></td>
 							<td><?php echo ($row['name']) ?></td>
 							<td class="text-center">
                                 <?php if($row['status'] == 1): ?>
-                                    <span class="badge badge-success px-3 rounded-pill">Active</span>
+                                    <span class="badge badge-success px-3 rounded-pill">Actif</span>
                                 <?php else: ?>
-                                    <span class="badge badge-danger px-3 rounded-pill">Inactive</span>
+                                    <span class="badge badge-danger px-3 rounded-pill">Inactif</span>
                                 <?php endif; ?>
                             </td>
 							<td align="center">
@@ -62,11 +62,11 @@
 				                    <span class="sr-only">Toggle Dropdown</span>
 				                  </button>
 				                  <div class="dropdown-menu" role="menu">
-                                    <a class="dropdown-item view_data" href="javascript:void(0)" data-id="<?php echo isset($row['id']) ? $row['id'] : 'ERR' ?>"><span class="fa fa-eye text-dark"></span> View</a> <!-- DEBUG: id=<?php echo isset($row['id']) ? $row['id'] : 'ERR' ?> -->
+                                    <a class="dropdown-item view_data" href="javascript:void(0)" data-id="<?php echo $row['id'] ?>"><span class="fa fa-eye text-dark"></span> Voir</a>
 				                    <div class="dropdown-divider"></div>
-				                    <a class="dropdown-item edit_data" href="javascript:void(0)" data-id="<?php echo isset($row['id']) ? $row['id'] : 'ERR' ?>"><span class="fa fa-edit text-primary"></span> Edit</a> <!-- DEBUG: id=<?php echo isset($row['id']) ? $row['id'] : 'ERR' ?> -->
+				                    <a class="dropdown-item edit_data" href="javascript:void(0)" data-id="<?php echo $row['id'] ?>"><span class="fa fa-edit text-primary"></span> Modifier</a>
 				                    <div class="dropdown-divider"></div>
-				                    <a class="dropdown-item delete_data" href="javascript:void(0)" data-id="<?php echo isset($row['id']) ? $row['id'] : 'ERR' ?>"><span class="fa fa-trash text-danger"></span> Delete</a> <!-- DEBUG: id=<?php echo isset($row['id']) ? $row['id'] : 'ERR' ?> -->
+				                    <a class="dropdown-item delete_data" href="javascript:void(0)" data-id="<?php echo $row['id'] ?>"><span class="fa fa-trash text-danger"></span> Supprimer</a>
 				                  </div>
 							</td>
 						</tr>
