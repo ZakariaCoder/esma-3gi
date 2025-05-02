@@ -41,9 +41,9 @@ if(isset($_GET['id']) && !empty($_GET['id']) && $_GET['id'] > 0){
 ?>
 <style>
 	#cimg{
-		min-width: 34vw;
+		/* min-width: 34vw;
 		min-height: 25vh;
-		max-height: 35vh;
+		max-height: 35vh; */
 		max-width: 100%;
 		object-fit:scale-down;
 		object-position:center center;
