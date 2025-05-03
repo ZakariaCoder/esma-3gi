@@ -71,7 +71,7 @@
                                 ?>
                             </td>
                             <td class="text-center">
-                                <button type="button" class="btn btn-primary btn-sm view_data" data-id="<?= $row['id'] ?>">Voir détails</button>
+                                <button type="button" class="btn btn-primary btn-sm view_data" style="font-size: 13px; font-weight: 600; padding: 6px 15px;" data-id="<?= $row['id'] ?>">Voir détails</button>
                             </td>
                         </tr>
                         <?php endwhile; ?>

@@ -79,6 +79,54 @@ if(isset($_GET['id']) && $_GET['id'] > 0){
 </section>
 
 <script>
+  // Define the uni_modal function if it doesn't exist
+  if(typeof window.uni_modal === 'undefined') {
+    window.uni_modal = function($title = '' , $url='',$size=""){
+        start_loader();
+        $.ajax({
+            url:$url,
+            error:err=>{
+                console.log(err);
+                alert("Une erreur s'est produite");
+                end_loader();
+            },
+            success:function(resp){
+                if(resp){
+                    $('#uni_modal .modal-title').html($title);
+                    $('#uni_modal .modal-body').html(resp);
+                    if($size != ''){
+                        $('#uni_modal .modal-dialog').addClass($size+'  modal-dialog-centered');
+                    }else{
+                        $('#uni_modal .modal-dialog').removeAttr("class").addClass("modal-dialog modal-md modal-dialog-centered");
+                    }
+                    $('#uni_modal').modal({
+                      show:true,
+                      backdrop:'static',
+                      keyboard:false,
+                      focus:true
+                    });
+                    end_loader();
+                }
+            }
+        });
+    }
+  }
+  
+  // Define the start_loader and end_loader functions if they don't exist
+  if(typeof window.start_loader === 'undefined') {
+    window.start_loader = function() {
+      $('body').append('<div id="preloader"><div class="loader-holder"><div></div><div></div><div></div><div></div>');
+    }
+  }
+  
+  if(typeof window.end_loader === 'undefined') {
+    window.end_loader = function() {
+      $('#preloader').fadeOut('fast', function() {
+        $('#preloader').remove();
+      });
+    }
+  }
+  
   $(function(){
     $('#book_now').click(function(){
         // Check if user is logged in directly from session
@@ -86,10 +134,27 @@ if(isset($_GET['id']) && $_GET['id'] > 0){
         var loginType = <?= isset($_SESSION['userdata']['login_type']) ? $_SESSION['userdata']['login_type'] : 0 ?>;
         
         if(userId > 0 && loginType == 2) {
-            uni_modal("Réserver cet espace", "booking.php?fid=<?= $id ?>", 'modal-sm');
+            uni_modal("Réserver cet espace", "booking.php?fid=<?= $id ?>", 'modal-m');
         } else {
             location.href = './login.php';
         }
     })
   })
 </script>
+
+<!-- Modal Structure -->
+<div class="modal fade" id="uni_modal" role='dialog'>
+  <div class="modal-dialog rounded-0 modal-md modal-dialog-centered" role="document">
+    <div class="modal-content rounded-0">
+      <div class="modal-header">
+        <h5 class="modal-title"></h5>
+      </div>
+      <div class="modal-body">
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary" id='submit' onclick="$('#uni_modal form').submit()">Enregistrer</button>
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Annuler</button>
+      </div>
+    </div>
+  </div>
+</div>

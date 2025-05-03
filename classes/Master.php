@@ -228,9 +228,9 @@ Class Master extends DBConnection {
 		if($save){
 			$resp['status'] = 'success';
 			if(empty($id))
-				$this->settings->set_flashdata('success'," Facility has been booked successfully.");
+				$this->settings->set_flashdata('success',"Espace réservé avec succès.");
 			else
-				$this->settings->set_flashdata('success'," Booking successfully updated.");
+				$this->settings->set_flashdata('success',"Réservation mise à jour avec succès.");
 		}else{
 			$resp['status'] = 'failed';
 			$resp['err'] = $this->conn->error."[{$sql}]";

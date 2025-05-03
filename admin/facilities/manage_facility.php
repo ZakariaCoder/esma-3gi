@@ -161,16 +161,18 @@ if(isset($_GET['id']) && !empty($_GET['id']) && $_GET['id'] > 0){
 				success:function(resp){
 					if(typeof resp =='object' && resp.status == 'success'){
 						end_loader();
-						// If creating a new facility (no id in form), show success and redirect
-						if(!$('input[name="id"]').val()){
-							$('#successModal').find('.modal-body').html('<div class="alert alert-success">'+resp.msg+'</div>');
-							$('#successModal').modal('show');
-							location.href = './?page=facilities';
-						} else {
-							// If editing, show view modal
+						// Show success message
+						alert_toast(resp.msg, 'success');
+						
+						// For both new and edited facilities, hide modal and redirect to facilities page
+						setTimeout(function() {
 							$('#uni_modal').modal('hide');
-							uni_modal("Facility Details","facilities/view_facility.php?id="+resp.id);
-						}
+							
+							// Add a small delay before redirecting to ensure modal is properly hidden
+							setTimeout(function() {
+								location.href = './?page=facilities';
+							}, 300);
+						}, 300);
 					}else if(resp.status == 'failed' && !!resp.msg){
                         var el = $('<div>')
                             el.addClass("alert alert-danger err-msg").text(resp.msg)
